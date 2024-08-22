@@ -8,9 +8,22 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\User;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
+
+    public function Profile()
+    {
+        $id = Auth::user()->id;
+        $admin_data = User::find($id);
+
+        return view('backend.profile.view', compact('admin_data'));
+    }
+
     /**
      * Display the user's profile form.
      */
@@ -24,37 +37,36 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request)
     {
-        $request->user()->fill($request->validated());
+        // dd($request->all());
+        $request_id = $request->id;
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $data = array();
+
+        $data['name'] = $request->name;
+        $data['user_name'] = $request->user_name;
+        $data['email'] = $request->email ?? "";
+        $data['updated_at'] = Carbon::now();
+
+        $profile_image = $request->image;
+
+        if ($profile_image) {
+
+            $p_image = DB::table('users')->where('id', $request_id)->first();
+            $profile_img = $p_image->image;
+            @unlink($profile_img);
+
+            $name_gen = uniqid() . '.' . $profile_image->getClientOriginalExtension();
+
+            Image::make($profile_image)->resize(636, 852)->save('backend/image/profile/' . $name_gen);
+
+            $data['image'] = 'backend/image/profile/' . $name_gen;
         }
 
-        $request->user()->save();
+        DB::table('users')->where('id', $request_id)->update($data);
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
-    }
-
-    /**
-     * Delete the user's account.
-     */
-    public function destroy(Request $request): RedirectResponse
-    {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current-password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
-    }
+        $notification = array('message' => 'Update Successfully!', 'alert-type' => 'success');
+        return redirect()->route('admin.profile')->with($notification);
+    } // End Mathod
 }

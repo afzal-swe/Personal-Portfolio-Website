@@ -1,7 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\frontend\AboutController;
+use App\Http\Controllers\frontend\BlogController;
+use App\Http\Controllers\frontend\ContactController;
+use App\Http\Controllers\frontend\PortfolioController;
+use App\Http\Controllers\frontend\ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,17 +20,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.layouts.main');
 });
 
-Route::get('/dashboard', function () {
-    return view('backend.layouts.main');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::get('/about', [AboutController::class, 'About'])->name('about');
+Route::get('/blog', [BlogController::class, 'Blog'])->name('blog');
+Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portfolio');
+Route::get('/services', [ServicesController::class, 'Services'])->name('services');
 
 require __DIR__ . '/auth.php';
