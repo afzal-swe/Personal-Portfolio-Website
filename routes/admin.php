@@ -49,6 +49,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::post('/update/{id}', 'About_Info_Update')->name('update.about');
                 // Multi Images
                 Route::get('/images', 'About_Multi_Images')->name('about_multi.image');
+                Route::get('/images/store', 'About_Multi_Images_Store')->name('about_multi.store');
+                Route::post('/images/create', 'About_Multi_Images_Insert')->name('about_multi.create');
+                Route::get('/images/edit/{id}', 'About_Multi_Images_Edit')->name('about_multi.edit');
+                Route::post('/images/update', 'About_Multi_Images_Update')->name('about_multi.update');
+                Route::get('/delete/{id}', 'Image_Delete')->name('about_multi.delete');
             });
         }); //End Route
 
