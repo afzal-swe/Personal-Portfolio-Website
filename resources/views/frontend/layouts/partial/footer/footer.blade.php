@@ -1,6 +1,9 @@
 
 
-
+@php
+    $website_settings = DB::table('website_settings')->first();
+    $socials = DB::table('socials')->first();
+@endphp
 
 
 
@@ -13,12 +16,11 @@
                 <div class="footer__widget">
                     <div class="fw-title">
                         <h5 class="sub-title">Contact us</h5>
-                        <h4 class="title">+81383 766 284</h4>
+                        <h4 class="title">Phone : {{$website_settings->phone_one ??'+81383 766 284'}}</h4>
+                        <h4 class="title">Phone : {{$website_settings->phone_two ??'+81383 766 284'}}</h4>
                     </div>
                     <div class="footer__widget__text">
-                        <p>There are many variations of passages of lorem ipsum
-                        available but the majority have suffered alteration
-                        in some form is also here.</p>
+                        <p>{{$website_settings->description ??'+81383 766 284'}}</p>
                     </div>
                 </div>
             </div>
@@ -26,11 +28,12 @@
                 <div class="footer__widget">
                     <div class="fw-title">
                         <h5 class="sub-title">my address</h5>
-                        <h4 class="title">AUSTRALIA</h4>
+                        <h4 class="title">Bangladesh</h4>
                     </div>
                     <div class="footer__widget__address">
-                        <p>Level 13, 2 Elizabeth Steereyt set <br> Melbourne, Victoria 3000</p>
-                        <a href="mailto:noreply@envato.com" class="mail">noreply@envato.com</a>
+                        <p>{{$website_settings->address ??'+81383 766 284'}}</p>
+                        <a href="#" class="mail">E-mail : {{$website_settings->main_email ??'noreply@envato.com'}}</a><br>
+                        <a href="#" class="mail">E-mail : {{$website_settings->support_email ??'noreply@envato.com'}}</a>
                     </div>
                 </div>
             </div>
@@ -41,14 +44,14 @@
                         <h4 class="title">socially connect</h4>
                     </div>
                     <div class="footer__widget__social">
-                        <p>Lorem ipsum dolor sit amet enim. <br> Etiam ullamcorper.</p>
+                        <p>This Is My Socials Links. <br> Please Click And Flow Me.</p>
                         <ul class="footer__social__list">
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-github"></i></a></li>
-                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="{{ $socials->linkedin ?? '#' }}"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="{{ $socials->facebook ?? '#' }}"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="{{ $socials->instagram ?? '#' }}"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="{{ $socials->twitter ?? '#' }}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{ $socials->github ?? '#' }}"><i class="fab fa-github"></i></a></li>
+                            <li><a href="{{ $socials->youtube ?? '#' }}"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>

@@ -1,3 +1,9 @@
+
+
+@php
+    $website_settings = DB::table('website_settings')->first();
+@endphp
+
 <!doctype html>
 <html lang="en">
 
@@ -9,7 +15,7 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset($website_settings->favicon ?? 'backend/assets/images/favicon.ico') }}">
 
         <!-- DataTables -->
         <link href="{{ asset('backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />

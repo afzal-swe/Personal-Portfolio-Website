@@ -1,3 +1,8 @@
+
+@php
+    $website_settings = DB::table('website_settings')->first();
+@endphp
+
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
@@ -7,7 +12,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/img/favicon.png') }}">
+		<link rel="shortcut icon" type="image/x-icon" href="{{ asset($website_settings->favicon ?? 'frontend/assets/img/favicon.png') }}">
         <!-- Place favicon.ico in the root directory -->
 
 		<!-- CSS here -->
