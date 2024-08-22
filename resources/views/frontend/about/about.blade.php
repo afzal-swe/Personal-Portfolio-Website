@@ -90,6 +90,16 @@
                             <ul class="about__exp__list">
                                 <li>
                                     <h5 class="title">User experience design - (Product Design)</h5>
+                                    <p>{!!  $about->logn_Description ?? ""  !!}</p>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                        {{-- <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+                            <p class="desc">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of lorem ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated lorem ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
+                            <ul class="about__exp__list">
+                                <li>
+                                    <h5 class="title">User experience design - (Product Design)</h5>
                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. If you are going to unseery.</p>
                                 </li>
                                 <li>
@@ -101,7 +111,7 @@
                                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable.</p>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --}}
                         <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
                             <div class="about__skill__wrap">
                                 <div class="row">

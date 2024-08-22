@@ -7,6 +7,7 @@ use App\Http\Controllers\frontend\BlogController;
 use App\Http\Controllers\frontend\ContactController;
 use App\Http\Controllers\frontend\PortfolioController;
 use App\Http\Controllers\frontend\ServicesController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,11 @@ use App\Http\Controllers\frontend\ServicesController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.layouts.main');
-});
+// Route::get('/', function () {
+//     return view('frontend.layouts.main')->name('home');
+// });
+
+Route::get('/', [HomeController::class, 'Home_Page'])->name('home');
 
 Route::get('/about', [AboutController::class, 'About'])->name('about');
 Route::get('/blog', [BlogController::class, 'Blog'])->name('blog');

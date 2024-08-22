@@ -34,6 +34,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('about.info') }}">Manage About Page</a></li>
+                        <li><a href="{{ route('about_multi.image') }}">Manage Multi Images</a></li>
                     </ul>
                 </li>
 
@@ -47,9 +48,9 @@
                         <span>Settings</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-recoverpw.html">Seo Setting</a></li>
-                        <li><a href="auth-login.html">Social Setting</a></li>
-                        <li><a href="auth-login.html">Website Setting</a></li>
+                        <li><a href="{{ route('seos') }}">Seo Setting</a></li>
+                        <li><a href="{{ route('socials') }}">Social Setting</a></li>
+                        <li><a href="{{ route('website_settings') }}">Website Setting</a></li>
                     </ul>
                 </li>
 

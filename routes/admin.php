@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\HomeSlideController;
 use App\Http\Controllers\backend\AboutController;
+use App\Http\Controllers\backend\SettingsController;
 
 
 
@@ -46,6 +47,29 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/', 'About')->name('about.info');
                 Route::post('/store', 'About_Store')->name('about.store');
                 Route::post('/update/{id}', 'About_Info_Update')->name('update.about');
+                // Multi Images
+                Route::get('/images', 'About_Multi_Images')->name('about_multi.image');
+            });
+        }); //End Route
+
+        // Settings Route Section
+        Route::group(['prefix' => 'setting'], function () {
+            Route::controller(SettingsController::class)->group(function () {
+                Route::group(['prefix' => 'socials'], function () {
+                    Route::get('/', 'Socials')->name('socials');
+                    Route::post('/insert', 'Socials_Insert')->name('socials.insert');
+                    Route::post('/update', 'Socials_Update')->name('socials.update');
+                }); // End 
+                Route::group(['prefix' => 'seos'], function () {
+                    Route::get('/', 'Seos')->name('seos');
+                    Route::post('/insert', 'Seos_Insert')->name('seos.insert');
+                    Route::post('/update', 'Seos_Update')->name('seos.update');
+                }); // End 
+                Route::group(['prefix' => 'website-settings'], function () {
+                    Route::get('/', 'Website_Settings')->name('website_settings');
+                    Route::post('/insert', 'Website_Settings_Data_Insert')->name('website_settings_data.insert');
+                    Route::post('/update', 'Website_Settings_Data_Update')->name('website_settings_data.update');
+                }); // End 
             });
         }); //End Route
     });

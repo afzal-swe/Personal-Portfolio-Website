@@ -91,4 +91,11 @@ class AboutController extends Controller
         $notification = array('messege' => 'Update About Information!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     } // End Method
+
+
+    //// ================= About Multi Images Function ====================== ////
+    public function About_Multi_Images()
+    {
+        return view('backend.about.multi_image.view');
+    } // End Method
 }
