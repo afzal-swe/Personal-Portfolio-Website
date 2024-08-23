@@ -8,6 +8,7 @@ use App\Http\Controllers\backend\HomeSlideController;
 use App\Http\Controllers\backend\AboutController;
 use App\Http\Controllers\backend\SettingsController;
 use App\Http\Controllers\backend\PortfolioController;
+use App\Http\Controllers\backend\BlogCategoriesController;
 
 
 
@@ -67,6 +68,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/edit/{id}', 'Project_Portfolio_Edit')->name('project_portfolio.edit');
                 Route::post('/update', 'Project_Portfolio_Update')->name('project_portfolio.update');
                 Route::get('/delete/{id}', 'Project_Portfolio_Delete')->name('project_portfolio.delete');
+            });
+        }); //End Route
+
+        // Blog Category Route Section
+        Route::group(['prefix' => 'blog-category'], function () {
+            Route::controller(BlogCategoriesController::class)->group(function () {
+                Route::get('/', 'All_Blog_Category_View')->name('all_blog_category.view');
+                Route::get('/create', 'Blog_Category_Create')->name('blog_category.create');
+                Route::get('/edit/{id}', 'Blog_Category_Edit')->name('blog_category.edit');
+                Route::post('/update', 'Blog_Category_Update')->name('blog_category.update');
+                Route::post('/store', 'Blog_Category_Store')->name('blog_category.store');
+                Route::get('/delete/{id}', 'Blog_Category_Delete')->name('blog_category.delete');
             });
         }); //End Route
 
