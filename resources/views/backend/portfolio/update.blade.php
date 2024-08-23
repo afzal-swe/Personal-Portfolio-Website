@@ -47,6 +47,26 @@
                                     </div>
                                 </div>
 
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Project type</label>
+                                    <div class="col-sm-10">
+                                        <select name="type" id="" class="form-control" >
+                                            <option value="1" @if ($project_edit->type == "1") selected @endif>Website</option>
+                                            <option value="2" @if ($project_edit->type == "2") selected @endif>Deshboard</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Project Status</label>
+                                    <div class="col-sm-10">
+                                        <select name="status" id="" class="form-control" >
+                                            <option value="1" @if ($project_edit->status == "1") selected @endif>Active</option>
+                                            <option value="0" @if ($project_edit->status == "0") selected @endif>Deactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 
                                 <div class="mb-3 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label"> </label>

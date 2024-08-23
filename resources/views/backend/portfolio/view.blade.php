@@ -22,7 +22,8 @@
                                 <th>Image</th>
                                 <th>Name</th>
                                 <th>Title</th>
-                                {{-- <th>Description</th> --}}
+                                <th>Type</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -34,6 +35,24 @@
                                     <td><img src="{{ asset($row->portfolio_image) }}" style="width: 150px; height:80px"></td>
                                     <td>{{ $row->portfolio_name }}</td>
                                     <td>{{ $row->portfolio_title }}</td>
+                                    <td>
+                                       @if ($row->type == 1)
+                                           <p class="text-info">Website</p>
+                                       @else
+                                            <p class="text-primary">Dashboard</p>
+                                       @endif 
+                                    </td>
+                                    <td>
+                                       @if ($row->status == 1)
+                                       <a href="">
+                                           <p class="text-success">Active</p>
+                                        </a>
+                                       @else
+                                       <a href="">
+                                            <p class="text-info">Deactive</p>
+                                        </a>
+                                       @endif 
+                                    </td>
                                     <td>
                                         <a href="{{ route('project_portfolio.edit',$row->id) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
                                         <a href="{{ route('project_portfolio.delete',$row->id) }}" id="delete" class="btn btn-danger sm" title="Delete Data"><i class="fas fa-trash-alt"></i></a>

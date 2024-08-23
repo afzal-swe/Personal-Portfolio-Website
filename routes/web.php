@@ -29,7 +29,17 @@ Route::get('/', [HomeController::class, 'Home_Page'])->name('home');
 Route::get('/about', [AboutController::class, 'About'])->name('about');
 Route::get('/blog', [BlogController::class, 'Blog'])->name('blog');
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
-Route::get('/portfolio', [PortfolioController::class, 'Portfolio'])->name('portfolio');
 Route::get('/services', [ServicesController::class, 'Services'])->name('services');
+
+
+Route::group(['prefix' => '/'], function () {
+    // Portfolio Route Section
+    Route::group(['prefix' => 'portfolio'], function () {
+        Route::controller(PortfolioController::class)->group(function () {
+            Route::get('/', 'Portfolio')->name('portfolio');
+            Route::get('/details/{id}', 'Portfolio_Details')->name('project_portfolio_details');
+        });
+    }); //End Route
+}); //End Route
 
 require __DIR__ . '/auth.php';

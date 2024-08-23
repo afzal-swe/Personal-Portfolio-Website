@@ -43,7 +43,28 @@
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Porject Description</label>
                                     <div class="col-sm-10">
                                         <textarea name="portfolio_description" class="form-control" rows="5"></textarea>
-                                        {{-- <input type="text" name="portfolio_description" class="form-control" placeholder="Porject Description" value="{{ old('portfolio_description') }}"> --}}
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Project type</label>
+                                    <div class="col-sm-10">
+                                        <select name="type" id="" class="form-control" >
+                                            <option selected disabled>== Select Project type == </option>
+                                            <option value="1">Website</option>
+                                            <option value="2">Deshboard</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Project Status</label>
+                                    <div class="col-sm-10">
+                                        <select name="status" id="" class="form-control" >
+                                            <option selected disabled>== Select Project Status == </option>
+                                            <option value="1">Active</option>
+                                            <option value="0">Deactive</option>
+                                        </select>
                                     </div>
                                 </div>
 

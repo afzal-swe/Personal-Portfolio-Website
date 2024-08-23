@@ -55,6 +55,8 @@ class PortfolioController extends Controller
         $data['portfolio_name'] = $request->portfolio_name;
         $data['portfolio_title'] = $request->portfolio_title;
         $data['portfolio_description'] = $request->portfolio_description;
+        $data['status'] = $request->status;
+        $data['type'] = $request->type;
         $data['slug'] = $slug;
         $data['created_at'] = Carbon::now();
 
@@ -90,6 +92,8 @@ class PortfolioController extends Controller
         $data['portfolio_name'] = $request->portfolio_name;
         $data['portfolio_title'] = $request->portfolio_title;
         $data['portfolio_description'] = $request->portfolio_description;
+        $data['status'] = $request->status;
+        $data['type'] = $request->type;
         $data['slug'] = $slug;
         $data['updated_at'] = Carbon::now();
 

@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('portfolio_title')->nullable();
             $table->string('portfolio_image')->nullable();
             $table->text('portfolio_description')->nullable();
-            $table->text('slug')->nullable();
+            $table->string('slug')->nullable();
+            $table->string('type')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
