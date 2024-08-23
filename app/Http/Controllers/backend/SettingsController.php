@@ -49,7 +49,7 @@ class SettingsController extends Controller
 
         DB::table($this->db_socials)->insert($data);
 
-        $notification = array('messege' => 'Socials added Successfully!', 'alert-type' => 'success');
+        $notification = array('message' => 'Socials added Successfully!', 'alert-type' => 'success');
         return redirect()->route('socials')->with($notification);
     } // End Method
 
@@ -70,7 +70,7 @@ class SettingsController extends Controller
 
         DB::table($this->db_socials)->where('id', $social_id)->update($data);
 
-        $notification = array('messege' => 'Socials Information Updated!', 'alert-type' => 'success');
+        $notification = array('message' => 'Socials Information Updated!', 'alert-type' => 'success');
         return redirect()->route('socials')->with($notification);
     } // End Method
     // ==================== Socials Functions Section End ============== //
@@ -105,7 +105,7 @@ class SettingsController extends Controller
 
         DB::table($this->db_seos)->insert($data);
 
-        $notification = array('messege' => 'Seos added Successfully!', 'alert-type' => 'success');
+        $notification = array('message' => 'Seos added Successfully!', 'alert-type' => 'success');
         return redirect()->route('seos')->with($notification);
     } // End Method
 
@@ -127,7 +127,7 @@ class SettingsController extends Controller
 
         DB::table($this->db_seos)->where('id', $update_id)->update($data);
 
-        $notification = array('messege' => 'Seos Update Successfully!', 'alert-type' => 'success');
+        $notification = array('message' => 'Seos Update Successfully!', 'alert-type' => 'success');
         return redirect()->route('seos')->with($notification);
     } // End Method
     //// ================== Seos Function End =====================////
@@ -175,7 +175,7 @@ class SettingsController extends Controller
 
         DB::table($this->db_website_settings)->insert($data);
 
-        $notification = array('messege' => 'Website Settings Added Successfully!', 'alert-type' => 'success');
+        $notification = array('message' => 'Website Settings Added Successfully!', 'alert-type' => 'success');
         return redirect()->route('website_settings')->with($notification);
     } // End Method
 
@@ -210,7 +210,7 @@ class SettingsController extends Controller
 
         DB::table($this->db_website_settings)->where('id', $update_id)->update($data);
 
-        $notification = array('messege' => 'Website Settings Update Successfully!', 'alert-type' => 'success');
+        $notification = array('message' => 'Website Settings Update Successfully!', 'alert-type' => 'success');
         return redirect()->route('website_settings')->with($notification);
     } // End Method
 }

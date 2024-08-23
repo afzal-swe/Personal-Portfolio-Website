@@ -61,7 +61,7 @@ class AboutController extends Controller
 
         DB::table($this->db_about)->insert($data);
 
-        $notification = array('messege' => 'Added About Information!', 'alert-type' => 'success');
+        $notification = array('message' => 'Added About Information!', 'alert-type' => 'success');
         return redirect()->route('about.info')->with($notification);
     } // End Method
 
@@ -91,7 +91,7 @@ class AboutController extends Controller
 
         DB::table($this->db_about)->where('id', $id)->update($data);
 
-        $notification = array('messege' => 'Update About Information!', 'alert-type' => 'success');
+        $notification = array('message' => 'Update About Information!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     } // End Method
 
@@ -127,7 +127,7 @@ class AboutController extends Controller
 
                 DB::table($this->db_about_multi_images)->insert($data);
             }
-            $notification = array('messege' => 'Add Image Successfully!', 'alert-type' => 'success');
+            $notification = array('message' => 'Add Image Successfully!', 'alert-type' => 'success');
             return redirect()->route('about_multi.image')->with($notification);
         }
     } // End Method
@@ -146,6 +146,9 @@ class AboutController extends Controller
     // Update Multi Image Function 
     public function About_Multi_Images_Update(Request $request)
     {
+        $validate = $request->validate([
+            "multi_image" => "required",
+        ]);
 
         $update_id = $request->id;
 
@@ -162,7 +165,7 @@ class AboutController extends Controller
         }
 
         DB::table($this->db_about_multi_images)->where('id', $update_id)->update($data);
-        $notification = array('messege' => 'Add Image Successfully!', 'alert-type' => 'success');
+        $notification = array('message' => 'Update Image Successfully!', 'alert-type' => 'success');
         return redirect()->route('about_multi.image')->with($notification);
     }
 
@@ -176,7 +179,7 @@ class AboutController extends Controller
 
         DB::table($this->db_about_multi_images)->where('id', $id)->delete();
 
-        $notification = array('messege' => 'Delete Image Successfully!', 'alert-type' => 'success');
+        $notification = array('message' => 'Delete Image Successfully!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
     } // End Method
 }

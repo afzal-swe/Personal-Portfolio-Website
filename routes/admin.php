@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\HomeSlideController;
 use App\Http\Controllers\backend\AboutController;
 use App\Http\Controllers\backend\SettingsController;
+use App\Http\Controllers\backend\PortfolioController;
 
 
 
@@ -54,6 +55,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/images/edit/{id}', 'About_Multi_Images_Edit')->name('about_multi.edit');
                 Route::post('/images/update', 'About_Multi_Images_Update')->name('about_multi.update');
                 Route::get('/delete/{id}', 'Image_Delete')->name('about_multi.delete');
+            });
+        }); //End Route
+
+        // Project Portfolio Route Section
+        Route::group(['prefix' => 'project-portfolio'], function () {
+            Route::controller(PortfolioController::class)->group(function () {
+                Route::get('/', 'All_Project_Portfolio')->name('all_project_portfolio');
+                Route::get('/create', 'Project_Portfolio_Create')->name('project_portfolio.create');
+                Route::post('/store', 'Project_Portfolio_Store')->name('project_portfolio.store');
+                Route::get('/edit/{id}', 'Project_Portfolio_Edit')->name('project_portfolio.edit');
+                Route::post('/update', 'Project_Portfolio_Update')->name('project_portfolio.update');
+                Route::get('/delete/{id}', 'Project_Portfolio_Delete')->name('project_portfolio.delete');
             });
         }); //End Route
 
