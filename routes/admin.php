@@ -9,6 +9,7 @@ use App\Http\Controllers\backend\AboutController;
 use App\Http\Controllers\backend\SettingsController;
 use App\Http\Controllers\backend\PortfolioController;
 use App\Http\Controllers\backend\BlogCategoriesController;
+use App\Http\Controllers\backend\BlogsController;
 
 
 
@@ -80,6 +81,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::post('/update', 'Blog_Category_Update')->name('blog_category.update');
                 Route::post('/store', 'Blog_Category_Store')->name('blog_category.store');
                 Route::get('/delete/{id}', 'Blog_Category_Delete')->name('blog_category.delete');
+            });
+        }); //End Route
+
+        // Blog Route Section
+        Route::group(['prefix' => 'blog'], function () {
+            Route::controller(BlogsController::class)->group(function () {
+                Route::get('/', 'View_All_Blog')->name('view_all_blog');
+                Route::get('/create', 'Blog_Create')->name('blog.create');
+                Route::post('/store', 'Blog_Store')->name('blog.store');
+                Route::get('/edit/{id}', 'Blog_Edit')->name('blog.edit');
+                Route::post('/update', 'Blog_Update')->name('blog.update');
+                Route::get('/delete/{id}', 'Blog_Delete')->name('blog.delete');
             });
         }); //End Route
 

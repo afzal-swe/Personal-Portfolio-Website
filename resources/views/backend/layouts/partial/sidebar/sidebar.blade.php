@@ -52,11 +52,22 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-mail-send-line"></i>
-                        <span>Blog Section</span>
+                        <span>Blog Category</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('blog_category.create') }}">Add Blog Category</a></li>
                         <li><a href="{{ route('all_blog_category.view') }}">Manage Blog Category</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Blog Pages</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('blog.create') }}">Add Blog</a></li>
+                        <li><a href="{{ route('view_all_blog') }}">Manage Blog</a></li>
                     </ul>
                 </li>
 

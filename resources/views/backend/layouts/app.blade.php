@@ -38,6 +38,8 @@
 
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 
+       
+
     </head>
 
     <body data-topbar="dark">
@@ -114,6 +116,8 @@
         <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+ 
 
         <script>
             @if(Session::has('message'))
