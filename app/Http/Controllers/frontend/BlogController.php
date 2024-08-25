@@ -44,7 +44,10 @@ class BlogController extends Controller
             ->where('blog_category_id', $id)
             ->orderBy('id', 'DESC')->get();
         $user = DB::table($this->db_user)->first();
+        $categories = DB::table('blog_categories')->orderBy('id', 'DESC')->limit(8)->get();
+        $new_blog = DB::table('blogs')->orderBy('id', 'DESC')->limit(5)->get();
+        $category_name = DB::table($this->db_blog_categories)->where('id', $id)->first();
 
-        return view('frontend.blog.blog_category', compact('blog_post', 'user'));
+        return view('frontend.blog.blog_category', compact('blog_post', 'user', 'categories', 'new_blog', 'category_name'));
     } // End Method
 }
