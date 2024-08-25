@@ -24,7 +24,7 @@
                                     <li class=" {{ ($route == 'about') ? 'active':'' }}"><a href="{{ route('about') }}">About</a></li>
                                     <li> <a href="services-details.html">Services</a></li>
                                     <li class=" {{ ($route == 'portfolio') ? 'active':'' }}"><a href="{{ route('portfolio') }}">Portfolio</a></li>
-                                    <li class="menu-item-has-children"><a href="#">Our Blog</a></li>
+                                    <li class=" {{ ($route == 'blog') ? 'active':'' }}"><a href="{{ route('blog') }}">Our Blog</a></li>
                                     {{-- <li class="menu-item-has-children"><a href="#">Our Blog</a>
                                         <ul class="sub-menu">
                                             <li><a href="blog.html">Our News</a></li>

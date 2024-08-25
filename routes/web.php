@@ -27,7 +27,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'Home_Page'])->name('home');
 
 Route::get('/about', [AboutController::class, 'About'])->name('about');
-Route::get('/blog', [BlogController::class, 'Blog'])->name('blog');
 Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
 Route::get('/services', [ServicesController::class, 'Services'])->name('services');
 
@@ -38,6 +37,14 @@ Route::group(['prefix' => '/'], function () {
         Route::controller(PortfolioController::class)->group(function () {
             Route::get('/', 'Portfolio')->name('portfolio');
             Route::get('/details/{id}', 'Portfolio_Details')->name('project_portfolio_details');
+        });
+    }); //End Route
+
+    Route::group(['prefix' => 'blog'], function () {
+        Route::controller(BlogController::class)->group(function () {
+            Route::get('/', 'Blog')->name('blog');
+            Route::get('/details/{id}', 'Blog_Details')->name('blog_details');
+            Route::get('/category/{id}', 'Category_Blog')->name('category.post');
         });
     }); //End Route
 }); //End Route

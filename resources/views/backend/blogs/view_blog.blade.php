@@ -22,6 +22,7 @@
                                 <th>Blog Image</th>
                                 <th>Blog Title</th>
                                 <th>Blog Tags</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -32,8 +33,8 @@
                                     <td>{{++$key}}</td>
                                     <td>{{ $row->blog_category ?? 'Null' }}</td>
                                     <td><img src="{{ asset($row->blog_image) }}" style="width: 40px; height:40px"></td>
-                                    <td>{{ $row->blog_title ?? 'Null' }}</td>
-                                    <td>{{ $row->blog_tags ?? 'Null' }}</td>
+                                    <td>{{ Str::of($row->blog_title ?? 'Null' )->limit(25)}}</td>
+                                    <td>{{ Str::of($row->blog_tags ?? 'Null')->limit(25) }}</td>
                                     <td>
                                         @if ($row->status == '1')
                                             <span class="text-success">Active</span>

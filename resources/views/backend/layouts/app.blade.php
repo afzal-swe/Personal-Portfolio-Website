@@ -105,17 +105,21 @@
         <!-- App js -->
         <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
-  
- 
         <!-- Datatable init js -->
         <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
-
 
         {{-- Sweet Alert --}}
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="{{ asset('backend/assets/js/code.js') }}"></script>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+         <!--tinymce js-->
+         <script src="{{ asset('backend/assets/libs/tinymce/tinymce.min.js') }}"></script>
+ 
+         <!-- init js -->
+         <script src="{{ asset('backend/assets/js/pages/form-editor.init.js') }}"></script>
+ 
 
  
 

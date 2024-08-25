@@ -38,6 +38,8 @@
                                     </div>
                                 </div>
 
+
+
                                  <!-- Long Description -->
                                 <div class="mb-4 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Long Description</label>
