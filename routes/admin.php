@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\SettingsController;
 use App\Http\Controllers\backend\PortfolioController;
 use App\Http\Controllers\backend\BlogCategoriesController;
 use App\Http\Controllers\backend\BlogsController;
+use App\Http\Controllers\backend\ContactController;
 
 
 
@@ -93,6 +94,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/edit/{id}', 'Blog_Edit')->name('blog.edit');
                 Route::post('/update', 'Blog_Update')->name('blog.update');
                 Route::get('/delete/{id}', 'Blog_Delete')->name('blog.delete');
+            });
+        }); //End Route
+
+        // Blog Route Section
+        Route::group(['prefix' => 'message'], function () {
+            Route::controller(ContactController::class)->group(function () {
+                Route::get('/', 'View_All_Message')->name('message.view');
+                Route::get('/delete/{id}', 'Message_Delete')->name('message.delete');
             });
         }); //End Route
 

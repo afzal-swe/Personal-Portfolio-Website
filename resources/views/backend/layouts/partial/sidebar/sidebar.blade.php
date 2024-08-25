@@ -1,3 +1,8 @@
+
+@php
+    $contact = DB::table('contacts')->get();
+@endphp
+
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
@@ -12,7 +17,7 @@
 
                 <li>
                     <a href="{{ route('dashboard') }}" class="waves-effect">
-                        <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end">3</span>
+                        <i class="ri-dashboard-line"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -68,6 +73,16 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('blog.create') }}">Add Blog</a></li>
                         <li><a href="{{ route('view_all_blog') }}">Manage Blog</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i><span class="badge rounded-pill bg-success float-end">{{ count($contact) }}</span>
+                        <span>Contact </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('message.view') }}">All Message</a></li>
                     </ul>
                 </li>
 

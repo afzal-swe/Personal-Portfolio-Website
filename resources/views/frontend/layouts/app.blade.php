@@ -1,6 +1,7 @@
 
 @php
     $website_settings = DB::table('website_settings')->first();
+    $seo = DB::table('seos')->first();
 @endphp
 
 <!doctype html>
@@ -8,9 +9,26 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Afzal - Personal Portfolio</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        @isset($seo)
+            
+        
+        <meta property="og:type" content="Website">
+        <meta property="og:title" content="{{ $seo->meta_title }}">
+        <meta property="og:description" content="{{ $seo->meta_description }}">
+
+
+        <meta name="author" content="{{ $seo->meta_author }}">
+        <meta name="keyword" content="{{ $seo->meta_keyword }}">
+        <meta name="description" content="{{ $seo->meta_description }}">
+        <meta name="google-verification" content="{{ $seo->google_verification }}">
+        <meta name="google-analytics" content="{{ $seo->google_analytics }}">
+        <meta name="alexa-analytics" content="{{ $seo->alexa_analytics }}">
+        <title>{{ $seo->meta_title }}</title>
+        @endisset
 
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset($website_settings->favicon ?? 'frontend/assets/img/favicon.png') }}">
         <!-- Place favicon.ico in the root directory -->

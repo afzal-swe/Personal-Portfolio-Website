@@ -2,7 +2,9 @@
 
 @php
     $website_settings = DB::table('website_settings')->first();
+    $seo = DB::table('seos')->first();
 @endphp
+
 
 <!doctype html>
 <html lang="en">
@@ -10,10 +12,29 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>afzal - Admin Dashboard</title>
+        {{-- <title>afzal - Admin Dashboard</title> --}}
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
+
+        @isset($seo)
+            
+        
+        <meta property="og:type" content="Website">
+        <meta property="og:title" content="{{ $seo->meta_title }}">
+        <meta property="og:description" content="{{ $seo->meta_description }}">
+
+
+        <meta name="author" content="{{ $seo->meta_author }}">
+        <meta name="keyword" content="{{ $seo->meta_keyword }}">
+        <meta name="description" content="{{ $seo->meta_description }}">
+        <meta name="google-verification" content="{{ $seo->google_verification }}">
+        <meta name="google-analytics" content="{{ $seo->google_analytics }}">
+        <meta name="alexa-analytics" content="{{ $seo->alexa_analytics }}">
+        <title>{{ $seo->meta_title }}</title>
+        @endisset
+
+        
+
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset($website_settings->favicon ?? 'backend/assets/images/favicon.ico') }}">
 
