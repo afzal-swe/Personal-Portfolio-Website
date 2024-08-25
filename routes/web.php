@@ -27,7 +27,6 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'Home_Page'])->name('home');
 
 Route::get('/about', [AboutController::class, 'About'])->name('about');
-Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
 Route::get('/services', [ServicesController::class, 'Services'])->name('services');
 
 
@@ -40,11 +39,20 @@ Route::group(['prefix' => '/'], function () {
         });
     }); //End Route
 
+    // Blog Route Section
     Route::group(['prefix' => 'blog'], function () {
         Route::controller(BlogController::class)->group(function () {
             Route::get('/', 'Blog')->name('blog');
             Route::get('/details/{id}', 'Blog_Details')->name('blog_details');
             Route::get('/category/{id}', 'Category_Blog')->name('category.post');
+        });
+    }); //End Route
+
+    // Contact Route Section
+    Route::group(['prefix' => 'contact'], function () {
+        Route::controller(ContactController::class)->group(function () {
+            Route::get('/', 'Contact')->name('contact');
+            Route::post('/message-send', 'Contact_Send')->name('contact.send');
         });
     }); //End Route
 }); //End Route

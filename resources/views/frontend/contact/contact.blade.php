@@ -92,19 +92,29 @@
 <!-- contact-area -->
 <div class="contact-area">
     <div class="container">
-        <form action="#" class="contact__form">
+        <form action="{{ route('contact.send') }}" method="POST" class="contact__form">
+            @csrf
             <div class="row">
                 <div class="col-md-6">
-                    <input type="text" placeholder="Enter your name*">
+                    <input type="text" name="name" placeholder="Enter your name*">
+                    @error('name')
+                        <samp class="text-danger">{{ $message }}</samp>
+                    @enderror
                 </div>
                 <div class="col-md-6">
-                    <input type="email" placeholder="Enter your mail*">
+                    <input type="email" name="email" placeholder="Enter your mail*">
+                    @error('email')
+                        <samp class="text-danger">{{ $message }}</samp>
+                    @enderror
                 </div>
                 <div class="col-md-6">
-                    <input type="text" placeholder="Enter your subject*">
+                    <input type="text" name="subject" placeholder="Enter your subject*">
+                    @error('subject')
+                        <samp class="text-danger">{{ $message }}</samp>
+                    @enderror
                 </div>
                 <div class="col-md-6">
-                    <input type="text" placeholder="Your Budget*">
+                    <input type="text" name="phone" placeholder="Your Phone*">
                 </div>
             </div>
             <textarea name="message" id="message" placeholder="Enter your massage*"></textarea>
