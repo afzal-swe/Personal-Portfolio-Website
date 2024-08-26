@@ -3,6 +3,7 @@
 
 @php
     $about = DB::table('abouts')->first();
+    $progress = DB::table('progress_bar')->get();
 @endphp
 
  <!-- breadcrumb-area -->
@@ -93,70 +94,20 @@
                         <div class="tab-pane fade" id="skills" role="tabpanel" aria-labelledby="skills-tab">
                             <div class="about__skill__wrap">
                                 <div class="row">
+                                    @foreach ($progress as $row)
+                                        
+                                    
                                     <div class="col-md-6">
                                         <div class="about__skill__item">
-                                            <h5 class="title">Communication</h5>
+                                            <h5 class="title">{{ $row->name ?? 'Communication'}}</h5>
                                             <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><span class="percentage">100%</span></div>
+                                                <div class="progress-bar" role="progressbar" style="width:{{$row->percentage ?? '20%'}}%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><span class="percentage">{{$row->percentage ?? '20%'}}%</span></div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="about__skill__item">
-                                            <h5 class="title">Brain Storming</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><span class="percentage">90%</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="about__skill__item">
-                                            <h5 class="title">Resourcefulness</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"><span class="percentage">50%</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="about__skill__item">
-                                            <h5 class="title">Figma</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"><span class="percentage">65%</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="about__skill__item">
-                                            <h5 class="title">Analytical Abilities</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><span class="percentage">80%</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="about__skill__item">
-                                            <h5 class="title">Skeatch</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"><span class="percentage">45%</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="about__skill__item">
-                                            <h5 class="title">User Research</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 55%;" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"><span class="percentage">55%</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="about__skill__item">
-                                            <h5 class="title">Adobe Tools</h5>
-                                            <div class="progress">
-                                                <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><span class="percentage">85%</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    @endforeach
+
                                 </div>
                             </div>
                         </div>

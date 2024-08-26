@@ -11,6 +11,7 @@ use App\Http\Controllers\backend\PortfolioController;
 use App\Http\Controllers\backend\BlogCategoriesController;
 use App\Http\Controllers\backend\BlogsController;
 use App\Http\Controllers\backend\ContactController;
+use App\Http\Controllers\backend\ProgressController;
 
 
 
@@ -104,6 +105,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::controller(ContactController::class)->group(function () {
                 Route::get('/', 'View_All_Message')->name('message.view');
                 Route::get('/delete/{id}', 'Message_Delete')->name('message.delete');
+            });
+        }); //End Route
+
+        // Progress Route Section
+        Route::group(['prefix' => 'progress'], function () {
+            Route::controller(ProgressController::class)->group(function () {
+                Route::get('/', 'Progress_View')->name('progress.view');
+                Route::post('/create', 'Progress_Create')->name('progress.insert');
+                Route::get('/edit/{id}', 'Progress_Edit');
+                Route::get('/delete/{slug}', 'Progress_Delete')->name('progress.delete');
+                Route::get('/status/{slug}', 'Progress_Status')->name('progress.status');
             });
         }); //End Route
 

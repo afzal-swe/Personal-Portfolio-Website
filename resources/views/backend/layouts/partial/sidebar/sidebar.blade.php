@@ -1,6 +1,7 @@
 
 @php
     $contact = DB::table('contacts')->get();
+    $progress = DB::table('progress_bar')->get();
 @endphp
 
 <div class="vertical-menu">
@@ -88,11 +89,11 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="ri-mail-send-line"></i><span class="badge rounded-pill bg-success float-end">0</span>
+                        <i class="ri-mail-send-line"></i><span class="badge rounded-pill bg-success float-end">{{ count($progress) }}</span>
                         <span>Skills Progress Bar</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="#">Manage Progress</a></li>
+                        <li><a href="{{ route('progress.view') }}">Manage Progress</a></li>
                     </ul>
                 </li>
 
