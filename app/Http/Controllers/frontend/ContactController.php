@@ -32,11 +32,11 @@ class ContactController extends Controller
         $validate = $request->validate([
             "name" => "required",
             "email" => "required",
-            "subject" => "required",
+            // "subject" => "required",
         ], [
             "name.required" => "This Name is Required",
             "email.required" => "This Email is Required",
-            "subject.required" => "This Subject is Required",
+            // "subject.required" => "This Subject is Required",
         ]);
 
         $data = array();
@@ -50,6 +50,6 @@ class ContactController extends Controller
         DB::table($this->db_contacts)->insert($data);
 
         $notification = array('message' => 'Message Send Successfully!', 'alert-type' => 'success');
-        return redirect()->route('contact')->with($notification);
+        return redirect()->back()->with($notification);
     } // End Method
 }

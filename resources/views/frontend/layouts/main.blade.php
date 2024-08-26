@@ -41,17 +41,18 @@
                          <h2 class="title">Any questions? Feel free <br> to contact</h2>
                      </div>
                      <div class="homeContact__content">
-                         <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                         <h2 class="mail"><a href="mailto:Info@webmail.com">Info@webmail.com</a></h2>
+                         <p>I can creating any web site develope, your need any web site , please you can send me message thank you.</p>
+                         <h2 class="mail"><a href="afzal.swe@gmail.com">afzal.swe@gmail.com</a></h2>
                      </div>
                  </div>
                  <div class="col-lg-6">
                      <div class="homeContact__form">
-                         <form action="#">
-                             <input type="text" placeholder="Enter name*">
-                             <input type="email" placeholder="Enter mail*">
-                             <input type="number" placeholder="Enter number*">
-                             <textarea name="message" placeholder="Enter Massage*"></textarea>
+                         <form action="{{ route('contact.send') }}" method="POST">
+                            @csrf
+                             <input type="text" name="name" placeholder="Enter name*">
+                             <input type="email" name="email" placeholder="Enter mail*">
+                             <input type="number" name="phone" placeholder="Enter number*">
+                             <textarea name="message" name="message" placeholder="Enter Massage*"></textarea>
                              <button type="submit">Send Message</button>
                          </form>
                      </div>
