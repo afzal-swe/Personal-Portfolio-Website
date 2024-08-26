@@ -7,7 +7,7 @@
      $blogs = DB::table('blogs')->orderBy('id', 'ASC')
             ->join('blog_categories', 'blogs.blog_category_id', 'blog_categories.id')
             ->select('blogs.*', 'blog_categories.blog_category')
-            ->get();
+            ->paginate(12);
     // @dd($blog);
 @endphp
 
@@ -65,6 +65,10 @@
             </div>
 
             @endforeach
+
+            <div class="pagination-wrap">
+                {{ $blogs->links('vendor.pagination.custom') }}
+            </div>
 
         </div>
     </div>

@@ -86,6 +86,16 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i><span class="badge rounded-pill bg-success float-end">0</span>
+                        <span>Skills Progress Bar</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="#">Manage Progress</a></li>
+                    </ul>
+                </li>
+
              
 
                 <li class="menu-title">Pages</li>
@@ -108,7 +118,7 @@
                         <span>Authentication</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="auth-recoverpw.html">Recover Password</a></li>
+                        <li><a href="{{ route('change.password') }}">Change Password</a></li>
                         <li><a href="{{ route('admin.logout') }}">Logout</a></li>
                     </ul>
                 </li>

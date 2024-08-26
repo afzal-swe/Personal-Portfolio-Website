@@ -25,6 +25,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::controller(AdminController::class)->group(function () {
             Route::get('/dashboard', 'Admin_dashboard')->name('dashboard');
             Route::get('/logout', 'Admin_logout')->name('admin.logout');
+            Route::get('/change-password', 'Change_Password')->name('change.password');
+            Route::post('/update-password', 'Update_Password')->name('password_update');
         }); //End Route
 
         // Profile Route Section

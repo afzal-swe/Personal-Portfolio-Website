@@ -20,7 +20,9 @@ class PortfolioController extends Controller
 
     public function Portfolio()
     {
-        return view('frontend.portfolio.portfolio');
+        $portfolio = DB::table($this->db_project_portfolio)->where('type', '1')->orderBy('id', 'DESC')->get();
+        // dd($portfolio);
+        return view('frontend.portfolio.portfolio', compact('portfolio'));
     } // End Method
 
     // Portfolio Details Function
