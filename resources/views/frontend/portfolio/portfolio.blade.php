@@ -62,7 +62,7 @@
                             <h2 class="title text-info"><a href="{{ route('project_portfolio_details',$row->id) }}">{{ $row->portfolio_name ?? "Null" }}</a></h2>
                             <p>{!! Str::of($row->portfolio_description ?? "Null")->limit(300) !!}</p>
                             
-                            <a href="#" class="link">View Site</a>
+                            <a href="{{ $row->website_link ?? '#' }}" target="_blank" class="link">View Site</a>
                         </div>
                     </div>
                 </div>

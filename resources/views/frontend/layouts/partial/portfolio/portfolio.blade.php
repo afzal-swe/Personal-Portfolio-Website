@@ -53,7 +53,7 @@
                                     <div class="portfolio__overlay__content">
                                         <span>{{ $row->portfolio_name ?? "Null" }}</span>
                                         <h4 class="title"><a href="{{ route('project_portfolio_details',$row->id) }}">{{ $row->portfolio_title ?? "Null" }}</a></h4>
-                                        <a href="#" class="link">Website Link</a>
+                                        <a href="{{ $row->website_link ?? '#' }}" target="_blank" class="link">Website View</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -77,7 +77,7 @@
                                     <div class="portfolio__overlay__content">
                                         <span>{{ $row->portfolio_name ?? 'Web Development'}}</span>
                                         <h4 class="title"><a href="{{ route('project_portfolio_details',$row->id) }}">{{ $row->portfolio_title ?? "Null" }}</a></h4>
-                                        <a href="#" class="link">Website Link</a>
+                                        <a href="{{ $row->website_link ?? '#' }}" target="_blank" class="link">Website View</a>
                                     </div>
                                 </div>
                             @endforeach
@@ -101,7 +101,7 @@
                                     <div class="portfolio__overlay__content">
                                         <span>{{ $row->portfolio_name ?? 'Web Development'}}</span>
                                         <h4 class="title"><a href="{{ route('project_portfolio_details',$row->id) }}">{{ $row->portfolio_title ?? "Null" }}</a></h4>
-                                        <a href="portfolio-details.html" class="link">Case Study</a>
+                                        <a href="{{ $row->website_link ?? '#' }}" target="_blank" class="link">Website View</a>
                                     </div>
                                 </div>
                             @endforeach

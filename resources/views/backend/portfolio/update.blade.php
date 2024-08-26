@@ -32,6 +32,13 @@
                                 </div>
 
                                 <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Website Link</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" name="website_link" class="form-control" value="{{ $project_edit->website_link ?? 'Null' }}">   
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Porject Description</label>
                                     <div class="col-sm-10">
                                         <textarea name="portfolio_description" class="form-control" rows="5">
