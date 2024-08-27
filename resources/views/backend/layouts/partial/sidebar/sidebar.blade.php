@@ -115,7 +115,16 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{ route('feedback_manage') }}">Manage Feedback</a></li>
-                        {{-- <li><a href="#">Manage Feedback Image</a></li> --}}
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Partners Section </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('partners.create') }}">Manage Partners</a></li>
                     </ul>
                 </li>
 

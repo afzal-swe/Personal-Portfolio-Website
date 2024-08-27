@@ -58,7 +58,7 @@ class HomeSlideController extends Controller
 
         DB::table($this->db_homeSlide)->insert($data);
 
-        $notification = array('messege' => 'Add New Photo Successfully!', 'alert-type' => 'success');
+        $notification = array('message' => 'Add New Photo Successfully!', 'alert-type' => 'success');
         return redirect()->route('home.slider')->with($notification);
     } // End Method
 

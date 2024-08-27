@@ -14,6 +14,7 @@ use App\Http\Controllers\backend\ContactController;
 use App\Http\Controllers\backend\ProgressController;
 use App\Http\Controllers\backend\WorkingProcessController;
 use App\Http\Controllers\backend\FeedbackController;
+use App\Http\Controllers\backend\PartnersController;
 
 
 
@@ -142,6 +143,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/edit/{id}', 'Feedback_Edit')->name('feedback.edit');
                 Route::post('/update', 'Feedback_Update')->name('feedback.update');
                 Route::get('/delete/{id}', 'Feedback_Delete')->name('feedback.delete');
+            });
+        }); //End Route
+
+        // Partner Route Section
+        Route::group(['prefix' => 'partner'], function () {
+            Route::controller(PartnersController::class)->group(function () {
+                Route::get('/', 'Partners_Create')->name('partners.create');
+                Route::post('/store', 'Partners_Store')->name('partners.store');
+                Route::post('/update', 'Partners_Update')->name('partners.update');
             });
         }); //End Route
 
