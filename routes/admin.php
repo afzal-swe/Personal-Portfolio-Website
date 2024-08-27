@@ -15,6 +15,7 @@ use App\Http\Controllers\backend\ProgressController;
 use App\Http\Controllers\backend\WorkingProcessController;
 use App\Http\Controllers\backend\FeedbackController;
 use App\Http\Controllers\backend\PartnersController;
+use App\Http\Controllers\backend\ServicesController;
 
 
 
@@ -152,6 +153,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/', 'Partners_Create')->name('partners.create');
                 Route::post('/store', 'Partners_Store')->name('partners.store');
                 Route::post('/update', 'Partners_Update')->name('partners.update');
+            });
+        }); //End Route
+
+        // Services Route Section
+        Route::group(['prefix' => 'services'], function () {
+            Route::controller(ServicesController::class)->group(function () {
+                Route::get('/all', 'All_Services_Manage')->name('services_all_manage');
+                Route::get('/create', 'Services_Create')->name('services.create');
+                Route::post('/store', 'Services_Store')->name('services.store');
+                Route::get('/delete/{id}', 'Services_Delete')->name('services.delete');
+                Route::get('/status/{id}', 'Services_Status')->name('services.status');
             });
         }); //End Route
 
