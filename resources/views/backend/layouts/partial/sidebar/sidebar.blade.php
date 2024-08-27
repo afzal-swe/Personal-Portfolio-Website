@@ -108,6 +108,17 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Feedback </span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{ route('feedback_manage') }}">Manage Feedback</a></li>
+                        {{-- <li><a href="#">Manage Feedback Image</a></li> --}}
+                    </ul>
+                </li>
+
              
 
                 <li class="menu-title">Pages</li>

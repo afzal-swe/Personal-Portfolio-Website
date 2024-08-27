@@ -13,6 +13,7 @@ use App\Http\Controllers\backend\BlogsController;
 use App\Http\Controllers\backend\ContactController;
 use App\Http\Controllers\backend\ProgressController;
 use App\Http\Controllers\backend\WorkingProcessController;
+use App\Http\Controllers\backend\FeedbackController;
 
 
 
@@ -130,6 +131,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::post('/update', 'Working_Porcess_Update')->name('working_process.update');
                 Route::get('/delete/{id}', 'Working_Porcess_Delete')->name('working_process.delete');
                 Route::get('/status/{id}', 'Working_Porcess_Status')->name('working_process.status');
+            });
+        }); //End Route
+
+        // Feedback Route Section
+        Route::group(['prefix' => 'manage-feedback'], function () {
+            Route::controller(FeedbackController::class)->group(function () {
+                Route::get('/', 'Feedback_Manage')->name('feedback_manage');
+                Route::post('/store', 'Feedback_Store')->name('feedback.store');
+                Route::get('/edit/{id}', 'Feedback_Edit')->name('feedback.edit');
+                Route::post('/update', 'Feedback_Update')->name('feedback.update');
+                Route::get('/delete/{id}', 'Feedback_Delete')->name('feedback.delete');
             });
         }); //End Route
 
