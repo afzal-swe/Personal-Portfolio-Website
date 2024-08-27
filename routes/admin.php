@@ -12,6 +12,7 @@ use App\Http\Controllers\backend\BlogCategoriesController;
 use App\Http\Controllers\backend\BlogsController;
 use App\Http\Controllers\backend\ContactController;
 use App\Http\Controllers\backend\ProgressController;
+use App\Http\Controllers\backend\WorkingProcessController;
 
 
 
@@ -116,6 +117,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/edit/{id}', 'Progress_Edit');
                 Route::get('/delete/{slug}', 'Progress_Delete')->name('progress.delete');
                 Route::get('/status/{slug}', 'Progress_Status')->name('progress.status');
+            });
+        }); //End Route
+
+        // Working Process Route Section
+        Route::group(['prefix' => 'working-process'], function () {
+            Route::controller(WorkingProcessController::class)->group(function () {
+                Route::get('/', 'Working_Porcess_View')->name('working_process.manage');
+                Route::get('/create', 'Working_Porcess_Create')->name('working_process.create');
+                Route::post('/store', 'Working_Porcess_Store')->name('working_process.store');
+                Route::get('/edit/{id}', 'Working_Porcess_Edit')->name('working_process.edit');
+                Route::post('/update', 'Working_Porcess_Update')->name('working_process.update');
+                Route::get('/delete/{id}', 'Working_Porcess_Delete')->name('working_process.delete');
+                Route::get('/status/{id}', 'Working_Porcess_Status')->name('working_process.status');
             });
         }); //End Route
 
