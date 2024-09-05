@@ -13,12 +13,29 @@ class HomeSlideController extends Controller
     //
     private $db_homeSlide;
 
+
+
+
+
+    /**
+     * Constructor to initialize database table name.
+     */
     public function __construct()
     {
         $this->db_homeSlide = "home_slide";
     }
 
-    // Home Slider Function
+
+
+
+
+
+
+    /**
+     * Display the home slider view, either to update existing data or create a new one.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Home_Slider()
     {
 
@@ -29,9 +46,21 @@ class HomeSlideController extends Controller
         } else {
             return view('backend.home_slide.create', compact('home_slider'));
         }
-    } // End Method
+    }
 
-    // Home Slider Insert Data
+
+
+
+
+
+
+
+    /**
+     * Store a new home slider image and details.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Home_Slider_Insert(Request $request)
     {
 
@@ -60,9 +89,24 @@ class HomeSlideController extends Controller
 
         $notification = array('message' => 'Add New Photo Successfully!', 'alert-type' => 'success');
         return redirect()->route('home.slider')->with($notification);
-    } // End Method
+    }
 
-    // Update Home Slider Function
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Update the home slider details. Optionally updates the slider image if provided.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Home_Slider_Update(Request $request)
     {
         $slide_id = $request->id;

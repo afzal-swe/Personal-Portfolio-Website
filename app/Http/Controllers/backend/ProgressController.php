@@ -13,20 +13,52 @@ class ProgressController extends Controller
     //
     private $db_progress_bar;
 
+
+
+
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->db_progress_bar = "progress_bar";
-    } // End Method
+    }
 
-    // Progress View Function
+
+
+
+
+
+
+    /**
+     * Display a listing of the progress bars.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Progress_View()
     {
 
         $all_progress = DB::table($this->db_progress_bar)->get();
         return view('backend.progress_bar.view_progress', compact('all_progress'));
-    } // End Method
+    }
 
-    // Progress Create Function
+
+
+
+
+
+
+
+    /**
+     * Store a newly created progress bar in the database.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Progress_Create(Request $request)
     {
 
@@ -49,9 +81,22 @@ class ProgressController extends Controller
 
         $notification = array('message' => 'Create Progress Successfully!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
-    } // End Method
+    }
 
-    // Progress Edit Function
+
+
+
+
+
+
+
+
+    /**
+     * Show the form for editing a specific progress bar.
+     *
+     * @param int $id
+     * @return \Illuminate\View\View
+     */
     public function Progress_Edit($id)
     {
         $edit = DB::table($this->db_progress_bar)->where('id', $id)->first();
@@ -59,10 +104,21 @@ class ProgressController extends Controller
     }
 
 
-    // Progress Status Function
+
+
+
+
+
+
+
+    /**
+     * Toggle the status of a progress bar.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Progress_Status(Request $request)
     {
-
         $slug = $request->slug;
 
         $view_data = DB::table($this->db_progress_bar)->where('slug', $slug)->first();
@@ -85,9 +141,21 @@ class ProgressController extends Controller
             $notification = array('message' => 'Progress Status Active!', 'alert-type' => 'success');
             return redirect()->back()->with($notification);
         }
-    } // End Method
+    }
 
-    // Progress Delete Function
+
+
+
+
+
+
+
+    /**
+     * Delete a progress bar entry.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Progress_Delete(Request $request)
     {
         $slug = $request->slug;

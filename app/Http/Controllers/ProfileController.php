@@ -16,6 +16,17 @@ use Intervention\Image\Facades\Image;
 class ProfileController extends Controller
 {
 
+
+
+
+
+    /**
+     * Display the profile page for the authenticated user.
+     *
+     * Retrieves the authenticated user's data and returns the profile view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Profile()
     {
         $id = Auth::user()->id;

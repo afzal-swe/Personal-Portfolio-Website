@@ -15,13 +15,38 @@ class AboutController extends Controller
     private $db_about;
     private $db_about_multi_images;
 
+
+
+
+
+
+    /**
+     * Constructor for initializing properties related to the "About" section.
+     *
+     * Sets up the database table names for storing "About" information and 
+     * associated multiple images.
+     */
     public function __construct()
     {
         $this->db_about = "abouts";
         $this->db_about_multi_images = "about_multi_images";
     }
 
-    // About Section
+
+
+
+
+
+
+    /**
+     * Displays the "About" page for editing or creating content.
+     *
+     * If an existing "About" section is found in the database, the method loads
+     * the update view with the current content. If no content is found, it loads
+     * the create view to allow for new content creation.
+     *
+     * @return \Illuminate\View\View
+     */
     public function About()
     {
         $edit_about = DB::table($this->db_about)->first();
@@ -31,9 +56,24 @@ class AboutController extends Controller
         } else {
             return view('backend.about.create', compact('edit_about'));
         }
-    } // End Method
+    }
 
-    // About Store Function
+
+
+
+
+
+
+    /**
+     * Stores new "About" information in the database.
+     *
+     * Validates the incoming request data, processes the uploaded image (if provided),
+     * and inserts the new "About" section information into the database. Upon success,
+     * redirects back with a success notification.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function About_Store(Request $request)
     {
         $validate = $request->validate([
@@ -63,9 +103,32 @@ class AboutController extends Controller
 
         $notification = array('message' => 'Added About Information!', 'alert-type' => 'success');
         return redirect()->route('about.info')->with($notification);
-    } // End Method
+    }
 
-    // Update About Function 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Updates existing "About" information in the database.
+     *
+     * Processes the incoming request to update the "About" section with new data. Handles
+     * the uploaded image if provided, replacing the old image. Updates the database with
+     * the new information and redirects back with a success notification.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function About_Info_Update(Request $request, $id)
     {
 
@@ -93,24 +156,66 @@ class AboutController extends Controller
 
         $notification = array('message' => 'Update About Information!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
-    } // End Method
+    }
 
 
     //// ================= About Multi Images Function ====================== ////
+
+
+
+
+    /**
+     * Retrieves and displays multiple "About" images.
+     *
+     * Fetches all images related to the "About" section from the database and displays them
+     * in a view. The retrieved images are passed to the view for rendering.
+     *
+     * @return \Illuminate\View\View
+     */
     public function About_Multi_Images()
     {
         $image = DB::table($this->db_about_multi_images)->get();
         return view('backend.about.multi_image.view', compact('image'));
-    } // End Method
+    }
 
-    // Multi Image Store Function
+
+
+
+
+
+
+    /**
+     * Displays the form to store multiple "About" images.
+     *
+     * Retrieves all existing images related to the "About" section from the database
+     * and displays them along with the form to add new images.
+     *
+     * @return \Illuminate\View\View
+     */
     public function About_Multi_Images_Store()
     {
         $image = DB::table($this->db_about_multi_images)->get();
         return view('backend.about.multi_image.create', compact('image'));
-    } // End Method
+    }
 
-    // About Multi Image Insert
+
+
+
+
+
+
+
+
+
+    /**
+     * Inserts multiple images for the "About" section.
+     *
+     * Handles the request to upload and store multiple images, processing each image individually.
+     * The images are resized and saved in the specified directory, and their paths are stored in the database.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function About_Multi_Images_Insert(Request $request)
     {
 
@@ -130,9 +235,24 @@ class AboutController extends Controller
             $notification = array('message' => 'Add Image Successfully!', 'alert-type' => 'success');
             return redirect()->route('about_multi.image')->with($notification);
         }
-    } // End Method
+    }
 
-    // Edit Multi Image Function
+
+
+
+
+
+
+
+
+    /**
+     * Displays the edit form for a specific "About" multi-image.
+     *
+     * Retrieves the image data from the database based on the provided ID and passes it to the view.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\View\View
+     */
     public function About_Multi_Images_Edit(Request $request)
     {
 
@@ -141,9 +261,25 @@ class AboutController extends Controller
         $edit_image = DB::table($this->db_about_multi_images)->where('id', $request_id)->first();
 
         return view('backend.about.multi_image.update', compact('edit_image'));
-    } // End Method
+    }
 
-    // Update Multi Image Function 
+
+
+
+
+
+
+
+
+    /**
+     * Updates a specific "About" multi-image record in the database.
+     *
+     * Validates the request data, processes the new image file, and updates the record in the database.
+     * The previous image file is deleted from the server if a new image is uploaded.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function About_Multi_Images_Update(Request $request)
     {
         $validate = $request->validate([
@@ -169,7 +305,20 @@ class AboutController extends Controller
         return redirect()->route('about_multi.image')->with($notification);
     }
 
-    // Image Delete Section
+
+
+
+
+
+
+
+
+    /**
+     * Deletes a specific "About" multi-image record from the database and removes the associated image file from the server.
+     *
+     * @param  int  $id  The ID of the image record to be deleted.
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Image_Delete($id)
     {
 
@@ -181,5 +330,5 @@ class AboutController extends Controller
 
         $notification = array('message' => 'Delete Image Successfully!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
-    } // End Method
+    }
 }

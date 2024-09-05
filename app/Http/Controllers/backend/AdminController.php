@@ -11,12 +11,31 @@ class AdminController extends Controller
 {
     //
 
+
+
+
+    /**
+     * Displays the admin dashboard view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Admin_dashboard()
     {
         return view('backend.layouts.main');
     }
 
-    // Admin Logout Function
+
+
+
+
+
+
+    /**
+     * Logs out the user and invalidates the session.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Admin_logout(Request $request)
     {
         Auth::guard('web')->logout();
@@ -27,15 +46,38 @@ class AdminController extends Controller
 
         $notification = array('message' => 'Logout Successfully', 'alert-type' => 'success');
         return redirect('/login')->with($notification);
-    } // End 
+    }
 
-    // Change Password Function
+
+
+
+
+
+
+
+    /**
+     * Displays the form for changing the password.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Change_Password()
     {
         return view('backend.profile.update_password');
-    } // End Method
+    }
 
-    // Update Password Function
+
+
+
+
+
+
+
+    /**
+     * Updates the user's password.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Update_Password(Request $request)
     {
         // Validate the request
@@ -58,16 +100,12 @@ class AdminController extends Controller
             $user->password = Hash::make($request->new_password);
             $user->save;
 
-            // Optionally, log the user out from other sessions or notify the user
-            // Auth::logoutOtherDevices($request->new_password);
-
-            // Redirect or return success response
-            // return redirect()->back()->with('success', 'Password updated successfully.');
+            // Redirect with success message
             $notification = array('message' => 'Password updated successfully.', 'alert-type' => 'success');
             return redirect()->back()->with($notification);
         } else {
-            // If the old password doesn't match, return an error message
+            // Return error if the old password doesn't match
             return redirect()->back()->withErrors(['old_password' => 'The provided old password does not match our records.']);
         }
-    } // End Method
+    }
 }

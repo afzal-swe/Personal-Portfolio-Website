@@ -13,26 +13,68 @@ class BlogCategoriesController extends Controller
     //
     private $db_blog_categories;
 
+
+
+
+
+    /**
+     * Constructor for initializing database table names.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->db_blog_categories = "blog_categories";
-    } // End Method
+    }
 
-    // Blog Category View Function
+
+
+
+
+
+
+
+    /**
+     * Display all blog categories.
+     *
+     * @return \Illuminate\View\View
+     */
     public function All_Blog_Category_View()
     {
 
         $bolg_category = DB::table($this->db_blog_categories)->get();
         return view('backend.blog_category.view', compact('bolg_category'));
-    } // End Method
+    }
 
-    // Blog Category Create Function
+
+
+
+
+
+
+
+    /**
+     * Show the form for creating a new blog category.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Blog_Category_Create()
     {
         return view('backend.blog_category.create');
-    } // End Method
+    }
 
-    // Blog Category Store Function 
+
+
+
+
+
+
+    /**
+     * Store a newly created blog category in the database.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Blog_Category_Store(Request $request)
     {
 
@@ -54,16 +96,40 @@ class BlogCategoriesController extends Controller
 
         $notification = array('message' => 'Create Blog Category !', 'alert-type' => 'success');
         return redirect()->route('all_blog_category.view')->with($notification);
-    } // End Method
+    }
 
-    // Blog Category Edit Function
+
+
+
+
+
+
+
+
+    /**
+     * Show the form for editing the specified blog category.
+     *
+     * @param int $id
+     * @return \Illuminate\View\View
+     */
     public function Blog_Category_Edit($id)
     {
         $edit_blog_category = DB::table($this->db_blog_categories)->where('id', $id)->first();
         return view('backend.blog_category.update', compact('edit_blog_category'));
-    } // End Method 
+    }
 
-    // Blog Category Update Function
+
+
+
+
+
+
+    /**
+     * Update the specified blog category in the database.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Blog_Category_Update(Request $request)
     {
         $id = $request->id;
@@ -81,7 +147,18 @@ class BlogCategoriesController extends Controller
         return redirect()->route('all_blog_category.view')->with($notification);
     }
 
-    // Blog Category Delete Function
+
+
+
+
+
+
+    /**
+     * Delete the specified blog category from the database.
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Blog_Category_Delete($id)
     {
 
@@ -89,5 +166,5 @@ class BlogCategoriesController extends Controller
 
         $notification = array('message' => 'Delete Blog Category !', 'alert-type' => 'success');
         return redirect()->route('all_blog_category.view')->with($notification);
-    } // End Method
+    }
 }

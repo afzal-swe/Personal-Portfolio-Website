@@ -15,19 +15,49 @@ class FeedbackController extends Controller
     //
     private $db_feedback;
 
+
+
+
+
+    /**
+     * Initialize the controller with database table names.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->db_feedback = "feedback";
-    } // End Method
+    }
 
-    // Feedback View Function
+
+
+
+
+
+    /**
+     * Display a listing of feedback data.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Feedback_Manage()
     {
         $feedback_data = DB::table($this->db_feedback)->get();
         return view('backend.feedback.feedback_manage', compact('feedback_data'));
-    } // End Method
+    }
 
-    // Feedback Store Function
+
+
+
+
+
+
+
+    /**
+     * Store new feedback data.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Feedback_Store(Request $request)
     {
         $validate = $request->validate([
@@ -47,16 +77,40 @@ class FeedbackController extends Controller
 
         $notification = array('message' => 'Feedback Store Successfully!', 'alert-type' => 'success');
         return redirect()->route('feedback_manage')->with($notification);
-    } // End Method
+    }
 
-    // Edit Feedback Function
+
+
+
+
+
+
+
+    /**
+     * Show the form for editing a specific feedback.
+     *
+     * @param  int  $id
+     * @return \Illuminate\View\View
+     */
     public function Feedback_Edit($id)
     {
         $edit = DB::table($this->db_feedback)->where('id', $id)->first();
         return view('backend.feedback.feedback_update', compact('edit'));
-    } // End Method
+    }
 
-    // Update Feedback Function
+
+
+
+
+
+
+
+    /**
+     * Update a specific feedback.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Feedback_Update(Request $request)
     {
 
@@ -74,7 +128,18 @@ class FeedbackController extends Controller
         return redirect()->route('feedback_manage')->with($notification);
     }
 
-    // Delete Feedback function
+
+
+
+
+
+
+    /**
+     * Delete a specific feedback.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Feedback_Delete($id)
     {
 

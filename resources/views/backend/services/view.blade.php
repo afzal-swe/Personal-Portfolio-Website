@@ -31,7 +31,7 @@
                                 <tr>
                                     <td>{{++$key}}</td>
                                     <td><img src="{{ asset($row->icon) }}" style="width: 40px; height:40px"></td>
-                                    <td><img src="{{ asset($row->image) }}" style="width: 40px; height:40px"></td>
+                                    <td><img src="{{ asset($row->image) }}" style="width: 80px; height:60px"></td>
                                     <td>{{ $row->title }}</td>
                                     <td>
                                         @if ($row->status == '1')
@@ -42,7 +42,7 @@
                                     </td>
                                    
                                     <td>
-                                        <a href="#" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('service.edit',$row->id) }}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>
                                         <a href="{{ route('services.delete',$row->id) }}" id="delete" class="btn btn-danger sm" title="Delete Data"><i class="fas fa-trash-alt"></i></a>
                                     </td>
                                 </tr>

@@ -14,26 +14,78 @@ class WorkingProcessController extends Controller
     //
     private $db_working_process;
 
+
+
+
+
+
+    /**
+     * Constructor to initialize the database table name.
+     *
+     * Sets the table name for the working process.
+     */
     public function __construct()
     {
-
         $this->db_working_process = "working_process";
-    } // End Method
+    }
 
 
+
+
+
+
+
+
+    /**
+     * Show the view for working processes.
+     *
+     * Retrieves all working processes from the database and orders them by ID in descending order.
+     * 
+     * @return \Illuminate\View\View The view for the working process page with the retrieved working processes.
+     */
     public function Working_Porcess_View()
     {
         $working_process_view = DB::table($this->db_working_process)->orderBy('id', 'DESC')->get();
         return view('backend.working_process.view', compact('working_process_view'));
-    } // End Method
+    }
 
-    // Create Working Process Function
+
+
+
+
+
+
+
+
+    /**
+     * Show the view for creating a new working process.
+     *
+     * Retrieves all working processes from the database and orders them by ID in descending order.
+     * 
+     * @return \Illuminate\View\View The view for creating a working process with the retrieved working processes.
+     */
     public function Working_Porcess_Create()
     {
         $working_process_view = DB::table($this->db_working_process)->orderBy('id', 'DESC')->get();
         return view('backend.working_process.create', compact('working_process_view'));
-    } // End Method
-    /// Store Working Process Function
+    }
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Store a new working process in the database.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the working process details.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects to the working process management page with a success notification.
+     */
     public function Working_Porcess_Store(Request $request)
     {
 
@@ -67,16 +119,53 @@ class WorkingProcessController extends Controller
 
         $notification = array('message' => 'Create Successfully', 'alert-type' => 'success');
         return redirect()->route('working_process.manage')->with($notification);
-    } // End Method
+    }
 
-    // Working Process Edit Function
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Show the view for editing a working process.
+     *
+     * @param int $id The ID of the working process to be edited.
+     * 
+     * @return \Illuminate\View\View The view for updating the working process with the retrieved data.
+     */
     public function Working_Porcess_Edit($id)
     {
-        $edit_data = DB::table($this->db_working_process)->where('id', $id)->first();
-        return view('backend.working_process.update', compact('edit_data'));
-    } // End Method
 
-    // Update Working Process Function
+        // Retrieve the working process details for the given ID.
+        $edit_data = DB::table($this->db_working_process)->where('id', $id)->first();
+
+
+        return view('backend.working_process.update', compact('edit_data'));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Update a working process in the database.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the updated working process details.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects to the working process management page with a success notification.
+     */
     public function Working_Porcess_Update(Request $request)
     {
 
@@ -109,10 +198,24 @@ class WorkingProcessController extends Controller
 
         $notification = array('message' => 'Updated Successfully', 'alert-type' => 'success');
         return redirect()->route('working_process.manage')->with($notification);
-    } // End Method
+    }
 
 
-    // Delete Working Process Function
+
+
+
+
+
+
+
+
+    /**
+     * Delete a working process from the database.
+     *
+     * @param int $id The ID of the working process to be deleted.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects to the working process management page with a success notification.
+     */
     public function Working_Porcess_Delete($id)
     {
 
@@ -124,10 +227,23 @@ class WorkingProcessController extends Controller
 
         $notification = array('message' => 'Delete Successfully', 'alert-type' => 'success');
         return redirect()->route('working_process.manage')->with($notification);
-    } // End Method
+    }
 
 
-    // Working process Status Function
+
+
+
+
+
+
+
+    /**
+     * Toggle the status of a working process between active and inactive.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the ID of the working process.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects back with a success notification indicating the new status.
+     */
     public function Working_Porcess_Status(Request $request)
     {
         $id = $request->id;
@@ -152,5 +268,5 @@ class WorkingProcessController extends Controller
             $notification = array('message' => 'Active Active!', 'alert-type' => 'success');
             return redirect()->back()->with($notification);
         }
-    } // end Method
+    }
 }

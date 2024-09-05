@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::group(['prefix' => 'dashboard'], function () {
+    Route::group(['prefix' => 'author'], function () {
 
         Route::controller(AdminController::class)->group(function () {
             Route::get('/dashboard', 'Admin_dashboard')->name('dashboard');
@@ -162,6 +162,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::get('/all', 'All_Services_Manage')->name('services_all_manage');
                 Route::get('/create', 'Services_Create')->name('services.create');
                 Route::post('/store', 'Services_Store')->name('services.store');
+                Route::get('/edit/{id}', 'Services_Edit')->name('service.edit');
+                Route::post('/update', 'Services_Update')->name('service.update');
                 Route::get('/delete/{id}', 'Services_Delete')->name('services.delete');
                 Route::get('/status/{id}', 'Services_Status')->name('services.status');
             });

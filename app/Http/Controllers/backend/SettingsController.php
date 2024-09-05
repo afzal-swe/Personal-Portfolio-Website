@@ -16,6 +16,16 @@ class SettingsController extends Controller
     private $db_seos;
     private $db_website_settings;
 
+
+
+
+
+
+    /**
+     * Constructor to initialize database table names.
+     *
+     * Sets the table names for socials, SEO, and website settings.
+     */
     public function __construct()
     {
         $this->db_socials = "socials";
@@ -24,6 +34,17 @@ class SettingsController extends Controller
     }
 
     // ==================== Socials Functions Section ==============
+
+
+
+
+    /**
+     * Show the view for managing social settings.
+     *
+     * Checks if social settings data exists and returns the appropriate view for updating or inserting data.
+     * 
+     * @return \Illuminate\View\View The view for updating or inserting social settings.
+     */
     public function Socials()
     {
         $socials = DB::table($this->db_socials)->first();
@@ -33,9 +54,21 @@ class SettingsController extends Controller
         } else {
             return view('backend.setting.socials.insert_data');
         }
-    } // End Method
+    }
 
-    // Insert Socials Information Function
+
+
+
+
+
+
+    /**
+     * Insert new social media settings into the database.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the social media settings.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects to the socials management page with a success notification.
+     */
     public function Socials_Insert(Request $request)
     {
         $data = array();
@@ -51,9 +84,21 @@ class SettingsController extends Controller
 
         $notification = array('message' => 'Socials added Successfully!', 'alert-type' => 'success');
         return redirect()->route('socials')->with($notification);
-    } // End Method
+    }
 
-    // Social Update Function
+
+
+
+
+
+
+    /**
+     * Update existing social media settings in the database.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the updated social media settings and ID.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects to the socials management page with a success notification.
+     */
     public function Socials_Update(Request $request)
     {
         // dd($request->all());
@@ -72,12 +117,24 @@ class SettingsController extends Controller
 
         $notification = array('message' => 'Socials Information Updated!', 'alert-type' => 'success');
         return redirect()->route('socials')->with($notification);
-    } // End Method
+    }
     // ==================== Socials Functions Section End ============== //
 
 
     //// ================== Seos Function Start =====================////
 
+
+
+
+
+
+    /**
+     * Show the view for managing SEO settings.
+     *
+     * Checks if SEO data exists and returns the appropriate view for updating or inserting data.
+     * 
+     * @return \Illuminate\View\View The view for updating or inserting SEO settings.
+     */
     public function Seos()
     {
         $seo = DB::table($this->db_seos)->first();
@@ -87,9 +144,23 @@ class SettingsController extends Controller
         } else {
             return view('backend.setting.seo.insert');
         }
-    } // End Method
+    }
 
-    // Seos Insert Function
+
+
+
+
+
+
+
+
+    /**
+     * Insert new SEO settings into the database.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the SEO settings.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects to the SEO management page with a success notification.
+     */
     public function Seos_Insert(Request $request)
     {
 
@@ -107,9 +178,22 @@ class SettingsController extends Controller
 
         $notification = array('message' => 'Seos added Successfully!', 'alert-type' => 'success');
         return redirect()->route('seos')->with($notification);
-    } // End Method
+    }
 
-    // Seos Update Function
+
+
+
+
+
+
+
+    /**
+     * Update existing SEO settings in the database.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the updated SEO settings and ID.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects to the SEO management page with a success notification.
+     */
     public function Seos_Update(Request $request)
     {
 
@@ -129,12 +213,24 @@ class SettingsController extends Controller
 
         $notification = array('message' => 'Seos Update Successfully!', 'alert-type' => 'success');
         return redirect()->route('seos')->with($notification);
-    } // End Method
+    }
     //// ================== Seos Function End =====================////
 
 
     //// ================== Website Settings Function Start =====================////
 
+
+
+
+
+
+    /**
+     * Show the view for managing website settings.
+     *
+     * Checks if website settings data exists and returns the appropriate view for updating or inserting data.
+     * 
+     * @return \Illuminate\View\View The view for updating or inserting website settings.
+     */
     public function Website_Settings()
     {
         $website_setting = DB::table($this->db_website_settings)->first();
@@ -143,9 +239,23 @@ class SettingsController extends Controller
         } else {
             return view('backend.setting.website_setting.insert_data', compact('website_setting'));
         }
-    } // End Method
+    }
 
-    // Website Settings Data Insert Function
+
+
+
+
+
+
+
+
+    /**
+     * Insert new website settings into the database.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the website settings data.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects to the website settings management page with a success notification.
+     */
     public function Website_Settings_Data_Insert(Request $request)
     {
         $validate = $request->validate([
@@ -177,9 +287,22 @@ class SettingsController extends Controller
 
         $notification = array('message' => 'Website Settings Added Successfully!', 'alert-type' => 'success');
         return redirect()->route('website_settings')->with($notification);
-    } // End Method
+    }
 
-    // Website Settings Data Update Function
+
+
+
+
+
+
+
+    /**
+     * Update existing website settings in the database.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the updated website settings data and ID.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects to the website settings management page with a success notification.
+     */
     public function Website_Settings_Data_Update(Request $request)
     {
         $update_id = $request->id;
@@ -212,5 +335,5 @@ class SettingsController extends Controller
 
         $notification = array('message' => 'Website Settings Update Successfully!', 'alert-type' => 'success');
         return redirect()->route('website_settings')->with($notification);
-    } // End Method
+    }
 }

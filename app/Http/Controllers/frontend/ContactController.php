@@ -14,21 +14,53 @@ class ContactController extends Controller
 
     private $db_contacts;
 
+
+
+
+
+    /**
+     * Initialize the controller and set the database table name for contacts.
+     *
+     * Sets the `$db_contacts` property to the name of the contacts table.
+     */
     public function __construct()
     {
         $this->db_contacts = "contacts";
-    } // End Method
+    }
 
 
-    // Contact Nav Bar Function
+
+
+
+
+    /**
+     * Show the contact page view.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Contact()
     {
         return view('frontend.contact.contact');
-    } // End Method
+    }
 
-    // Contact Message Send Function
+
+
+
+
+
+
+
+
+    /**
+     * Validate and send a contact message, then store it in the database.
+     *
+     * @param \Illuminate\Http\Request $request The HTTP request containing the contact message details.
+     * 
+     * @return \Illuminate\Http\RedirectResponse Redirects back to the previous page with a success notification.
+     */
     public function Contact_Send(Request $request)
     {
+        // Validate the request data.
         $validate = $request->validate([
             "name" => "required",
             "email" => "required",
@@ -51,5 +83,5 @@ class ContactController extends Controller
 
         $notification = array('message' => 'Message Send Successfully!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
-    } // End Method
+    }
 }

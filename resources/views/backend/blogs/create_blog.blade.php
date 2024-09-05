@@ -75,6 +75,13 @@
                                     </div>
                                 </div>
 
+                                <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Blog Link</label>
+                                    <div class="col-sm-10">
+                                        <input name="blog_link" class="form-control"></input>
+                                    </div>
+                                </div>
+
                                
 
                                

@@ -11,20 +11,52 @@ class ContactController extends Controller
     //
     private $db_contacts;
 
+
+
+
+
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->db_contacts = "contacts";
-    } // End Method
+    }
 
-    // View All Message Function
+
+
+
+
+
+
+
+    /**
+     * Display all messages.
+     *
+     * @return \Illuminate\View\View
+     */
     public function View_All_Message()
     {
 
         $all_message = DB::table($this->db_contacts)->get();
         return view('backend.contact.contact_view', compact('all_message'));
-    } // End Method
+    }
 
-    // Message Delete Function
+
+
+
+
+
+
+    /**
+     * Delete a specific message by ID.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Message_Delete($id)
     {
 
@@ -32,5 +64,5 @@ class ContactController extends Controller
 
         $notification = array('message' => 'Delete Successfully!', 'alert-type' => 'success');
         return redirect()->route('message.view')->with($notification);
-    } // End Method
+    }
 }

@@ -65,6 +65,13 @@
                                 </div>
 
                                 <div class="mb-4 row">
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Blog Link</label>
+                                    <div class="col-sm-10">
+                                        <input name="blog_link" class="form-control" value="{{ $blog_edit->blog_link }}">
+                                    </div>
+                                </div>
+
+                                <div class="mb-4 row">
                                     <label for="example-text-input" class="col-sm-2 col-form-label">Blog Status</label>
                                     <div class="col-sm-10">
                                         <select name="status" id="" class="form-control" >

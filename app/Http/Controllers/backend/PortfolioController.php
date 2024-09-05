@@ -14,28 +14,69 @@ class PortfolioController extends Controller
     //
     private $db_project_portfolio;
 
+
+
+
+
+
+    /**
+     * Constructor to initialize the database table name.
+     */
     public function __construct()
     {
         $this->db_project_portfolio = "project_portfolio";
     }
 
-    // View All Project Portfolio Function
+
+
+
+
+
+
+    /**
+     * Retrieve and display all project portfolios.
+     *
+     * @return \Illuminate\View\View
+     */
     public function All_Project_Portfolio()
     {
 
         $all_project_portfolio = DB::table($this->db_project_portfolio)->orderBy('id', 'DESC')->get();
         return view('backend.portfolio.view', compact('all_project_portfolio'));
-    } // End Method
+    }
 
-    // Create Project Portfolio Function
+
+
+
+
+
+
+
+
+    /**
+     * Show the form to create a new project portfolio.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Project_Portfolio_Create()
     {
         $project_portfolio = DB::table($this->db_project_portfolio)->get();
 
         return view('backend.portfolio.create', compact('project_portfolio'));
-    } // End Method
+    }
 
-    // Project Portfolio Store Function
+
+
+
+
+
+
+    /**
+     * Store a newly created project portfolio in the database.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Project_Portfolio_Store(Request $request)
     {
         $validate = $request->validate([
@@ -73,16 +114,51 @@ class PortfolioController extends Controller
 
         $notification = array('message' => 'Create Successfully!', 'alert-type' => 'success');
         return redirect()->route('all_project_portfolio')->with($notification);
-    } // End Method
+    }
 
-    // Project Portfolio Edit Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Show the form for editing the specified project portfolio.
+     *
+     * @param int $id
+     * @return \Illuminate\View\View
+     */
     public function Project_Portfolio_Edit($id)
     {
         $project_edit = DB::table($this->db_project_portfolio)->where('id', $id)->first();
         return view('backend.portfolio.update', compact('project_edit'));
-    } // End Method
+    }
 
-    // Update Project Portfolio Data Function
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Update the specified project portfolio in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Project_Portfolio_Update(Request $request)
     {
         $request_id = $request->id;
@@ -116,9 +192,20 @@ class PortfolioController extends Controller
 
         $notification = array('message' => 'Update Successfully!', 'alert-type' => 'success');
         return redirect()->route('all_project_portfolio')->with($notification);
-    } // End Mothod
+    }
 
-    // Project Portfolio Delete Function
+
+
+
+
+
+
+    /**
+     * Remove the specified project portfolio from storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Project_Portfolio_Delete(Request $request)
     {
 
@@ -131,5 +218,5 @@ class PortfolioController extends Controller
         DB::table($this->db_project_portfolio)->where('id', $request_id)->delete();
         $notification = array('message' => 'Delete Successfully!', 'alert-type' => 'success');
         return redirect()->route('all_project_portfolio')->with($notification);
-    } // End Method
+    }
 }

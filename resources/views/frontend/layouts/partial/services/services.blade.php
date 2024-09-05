@@ -1,3 +1,10 @@
+
+
+@php
+    $services = DB::table('services')->where('status', '1')->get();
+@endphp
+
+
 <section class="services">
     <div class="container">
         <div class="services__title__wrap">
@@ -14,116 +21,33 @@
             </div>
         </div>
         <div class="row gx-0 services__active">
-            <div class="col-xl-3">
+
+            @foreach ($services as $row)
+                
+            
+            <div class="col-xl-3 p-2">
                 <div class="services__item">
                     <div class="services__thumb">
-                        <a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img01.jpg') }}" alt=""></a>
+                        <a href="#"><img src="{{ asset( $row->image ?? 'frontend/assets/img/images/services_img01.jpg') }}" alt=""></a>
                     </div>
                     <div class="services__content">
                         <div class="services__icon">
-                            <img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon01.png') }}" alt="">
-                            <img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon01.png') }}" alt="">
+                            <img class="light" src="{{ asset($row->icon ?? 'frontend/assets/img/icons/services_light_icon01.png') }}" alt="">
+                            {{-- <img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon01.png') }}" alt=""> --}}
                         </div>
-                        <h3 class="title"><a href="services-details.html">Business Strategy</a></h3>
-                        <p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
+                        <h4 class="title"><a href="#">{{ $row->title ?? '' }}</a></h4>
+                        <p>{!! Str::of($row->short_description)->limit(150) ?? '' !!}</p>
                         <ul class="services__list">
-                            <li>Research & Data</li>
-                            <li>Branding & Positioning</li>
-                            <li>Business Consulting</li>
-                            <li>Go To Market</li>
+                            <li>{!! $row->logn_description ?? '' !!}</li>
+                            
                         </ul>
-                        <a href="services-details.html" class="btn border-btn">Read more</a>
+                        <a href="#" class="btn border-btn">Read more</a>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3">
-                <div class="services__item">
-                    <div class="services__thumb">
-                        <a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img02.jpg') }}" alt=""></a>
-                    </div>
-                    <div class="services__content">
-                        <div class="services__icon">
-                            <img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon02.png') }}" alt="">
-                            <img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon02.png') }}" alt="">
-                        </div>
-                        <h3 class="title"><a href="services-details.html">Brand Strategy</a></h3>
-                        <p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
-                        <ul class="services__list">
-                            <li>User Research & Testing</li>
-                            <li>UX Design</li>
-                            <li>Visual Design</li>
-                            <li>Information Architecture</li>
-                        </ul>
-                        <a href="services-details.html" class="btn border-btn">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3">
-                <div class="services__item">
-                    <div class="services__thumb">
-                        <a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img03.jpg') }}" alt=""></a>
-                    </div>
-                    <div class="services__content">
-                        <div class="services__icon">
-                            <img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon03.png') }}" alt="">
-                            <img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon03.png') }}" alt="">
-                        </div>
-                        <h3 class="title"><a href="services-details.html">Product Design</a></h3>
-                        <p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
-                        <ul class="services__list">
-                            <li>User Research & Testing</li>
-                            <li>UX Design</li>
-                            <li>Visual Design</li>
-                            <li>Information Architecture</li>
-                        </ul>
-                        <a href="services-details.html" class="btn border-btn">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3">
-                <div class="services__item">
-                    <div class="services__thumb">
-                        <a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img04.jpg') }}" alt=""></a>
-                    </div>
-                    <div class="services__content">
-                        <div class="services__icon">
-                            <img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon04.png') }}" alt="">
-                            <img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon04.png') }}" alt="">
-                        </div>
-                        <h3 class="title"><a href="services-details.html">Visual Design</a></h3>
-                        <p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
-                        <ul class="services__list">
-                            <li>User Research & Testing</li>
-                            <li>UX Design</li>
-                            <li>Visual Design</li>
-                            <li>Information Architecture</li>
-                        </ul>
-                        <a href="services-details.html" class="btn border-btn">Read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3">
-                <div class="services__item">
-                    <div class="services__thumb">
-                        <a href="services-details.html"><img src="{{ asset('frontend/assets/img/images/services_img03.jpg') }}" alt=""></a>
-                    </div>
-                    <div class="services__content">
-                        <div class="services__icon">
-                            <img class="light" src="{{ asset('frontend/assets/img/icons/services_light_icon02.png') }}" alt="">
-                            <img class="dark" src="{{ asset('frontend/assets/img/icons/services_icon02.png') }}" alt="">
-                        </div>
-                        <h3 class="title"><a href="services-details.html">Web Development</a></h3>
-                        <p>Strategy is a forward-looking plan for your brand’s behavior. Strategy is a forward-looking plan.</p>
-                        <ul class="services__list">
-                            <li>User Research & Testing</li>
-                            <li>UX Design</li>
-                            <li>Visual Design</li>
-                            <li>Information Architecture</li>
-                        </ul>
-                        <a href="services-details.html" class="btn border-btn">Read more</a>
-                    </div>
-                </div>
-            </div>
+
+            @endforeach
+
         </div>
     </div>
 </section>

@@ -20,7 +20,7 @@
                     <div class="blog__post__thumb">
                         <a href="{{ route('blog_details',$row->id) }}"><img src="{{ asset($row->blog_image ?? 'frontend/assets/img/blog/blog_post_thumb01.jpg') }}" alt=""></a>
                         <div class="blog__post__tags">
-                            <a href="#">{{ $row->blog_category }}</a>
+                            <a href="{{ $row->blog_link ?? '#' }}" target="blank">{{ $row->blog_category }}</a>
                         </div>
                     </div>
                     <div class="blog__post__content">

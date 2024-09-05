@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Aug 27, 2024 at 09:22 PM
+-- Generation Time: Sep 05, 2024 at 10:52 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.0.30
 
@@ -85,6 +85,7 @@ CREATE TABLE `blogs` (
   `blog_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `blog_tags` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `blog_description` text COLLATE utf8mb4_unicode_ci,
+  `blog_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -94,13 +95,13 @@ CREATE TABLE `blogs` (
 -- Dumping data for table `blogs`
 --
 
-INSERT INTO `blogs` (`id`, `blog_category_id`, `blog_title`, `blog_slug`, `blog_image`, `blog_tags`, `blog_description`, `status`, `created_at`, `updated_at`) VALUES
-(9, '4', 'Computer Networking Basic Course', 'computer-networking-basic-course', 'backend/image/blog/66ca84992248c.jpg', 'Computer,Computer Newtork,Computer Networking,Computer Networking Bangla,Routing,Computer Routing,Vlan, Ospf, Rip,Rip1,Rip2,Dns,Static', 'This Blog come to the youtube channel , This tutorial makeing only for basic computer networking section.\r\nTopic :\r\n-> Basic Networking.\r\n-> Routing System.\r\n-> Bus Topology Configuration.\r\n-> Star Topology Configuration.\r\n-> Ring Topology Configuration.\r\n-> Mesh Topology Configuration.\r\n-> Hybrid Topology Configuration.\r\n-> Route Configuration.\r\n-> Static Routing.\r\n-> Route Rip Version-1 Configuration.\r\n-> Router Rip Version-2 Configuration.\r\n-> OSPF Router Configuration And\r\n-> DNS Configuration.\r\n# Youtube Link : https://youtu.be/cBhMc1UzupA', '1', '2024-08-24 19:10:49', '2024-08-24 19:19:28'),
-(10, '4', 'Laravel Basic To Advance Interview Questions', 'laravel-basic-to-advance-interview-questions', 'backend/image/blog/66ca87659c2ee.jpg', 'Laravel,Laravel Interview,Laravel Interview Question,Laravel Basic Question,Laravel Bangla Interview,Interview Question,Bangla Interview Question,Interview Basic Question', 'Laravel Interview Questions Basic to Intermediate\r\nThis guide covers fundamental to intermediate questions and answers to help you prepare for Laravel interviews. Whether you\'re a beginner or have some experience, this section will ensure you have a solid understanding of the core concepts.', '1', '2024-08-24 19:22:45', NULL),
-(11, '4', 'Computer Assembly Programming Language Basic Course', 'computer-assembly-programming-language-basic-course', 'backend/image/blog/66ca896d0575a.webp', 'Assembly,Assembly Language,Assembly Programming,Basic Assembly Language, How to assembly language', 'Computer Assembly Programming Language Basic Course, This course you can watching only youtube channel. \r\nI making Assembly Programming Language Basic tutorial play list .\r\nYoutube Link : https://www.youtube.com/@PROGRAMMINGTRUSTBD\r\nCourse Link : https://youtu.be/CiQ9UHhskFw\r\nThank You', '1', '2024-08-24 19:31:25', NULL),
-(12, '5', 'Facebook Page', 'facebook-page', 'backend/image/blog/66ca8b8be3422.jpg', 'page,fb,facebook,facebook page,code artist.IT', 'This Page is my working activities .', '1', '2024-08-24 19:40:27', NULL),
-(13, '5', 'twitter Page', 'twitter-page', 'backend/image/blog/66ca8d825bad6.jpg', 'asdf', 'asdf', '1', '2024-08-24 19:48:50', NULL),
-(14, '4', 'new work', 'new-work', 'backend/image/blog/66ca8da35e2b4.png', 'sadfa', 'asdfsa', '1', '2024-08-24 19:49:23', NULL);
+INSERT INTO `blogs` (`id`, `blog_category_id`, `blog_title`, `blog_slug`, `blog_image`, `blog_tags`, `blog_description`, `blog_link`, `status`, `created_at`, `updated_at`) VALUES
+(9, '4', 'Computer Networking Basic Course', 'computer-networking-basic-course', 'backend/image/blog/66ca84992248c.jpg', 'Computer,Computer Newtork,Computer Networking,Computer Networking Bangla,Routing,Computer Routing,Vlan, Ospf, Rip,Rip1,Rip2,Dns,Static', 'This Blog come to the youtube channel , This tutorial makeing only for basic computer networking section.\r\nTopic :\r\n-> Basic Networking.\r\n-> Routing System.\r\n-> Bus Topology Configuration.\r\n-> Star Topology Configuration.\r\n-> Ring Topology Configuration.\r\n-> Mesh Topology Configuration.\r\n-> Hybrid Topology Configuration.\r\n-> Route Configuration.\r\n-> Static Routing.\r\n-> Route Rip Version-1 Configuration.\r\n-> Router Rip Version-2 Configuration.\r\n-> OSPF Router Configuration And\r\n-> DNS Configuration.\r\n# Youtube Link : https://youtu.be/cBhMc1UzupA', NULL, '1', '2024-08-24 19:10:49', '2024-08-24 19:19:28'),
+(10, '4', 'Laravel Basic To Advance Interview Questions', 'laravel-basic-to-advance-interview-questions', 'backend/image/blog/66ca87659c2ee.jpg', 'Laravel,Laravel Interview,Laravel Interview Question,Laravel Basic Question,Laravel Bangla Interview,Interview Question,Bangla Interview Question,Interview Basic Question', 'Laravel Interview Questions Basic to Intermediate\r\nThis guide covers fundamental to intermediate questions and answers to help you prepare for Laravel interviews. Whether you\'re a beginner or have some experience, this section will ensure you have a solid understanding of the core concepts.', NULL, '1', '2024-08-24 19:22:45', NULL),
+(11, '4', 'Computer Assembly Programming Language Basic Course', 'computer-assembly-programming-language-basic-course', 'backend/image/blog/66ca896d0575a.webp', 'Assembly,Assembly Language,Assembly Programming,Basic Assembly Language, How to assembly language', 'Computer Assembly Programming Language Basic Course, This course you can watching only youtube channel. \r\nI making Assembly Programming Language Basic tutorial play list .\r\nYoutube Link : https://www.youtube.com/@PROGRAMMINGTRUSTBD\r\nCourse Link : https://youtu.be/CiQ9UHhskFw\r\nThank You', NULL, '1', '2024-08-24 19:31:25', NULL),
+(12, '5', 'Facebook Page', 'facebook-page', 'backend/image/blog/66ca8b8be3422.jpg', 'page,fb,facebook,facebook page,code artist.IT', 'This Page is my working activities .', NULL, '1', '2024-08-24 19:40:27', NULL),
+(13, '5', 'twitter Page', 'twitter-page', 'backend/image/blog/66ca8d825bad6.jpg', 'asdf', 'asdf', 'https://www.youtube.com/@PROGRAMMINGTRUSTBD', '1', '2024-08-24 19:48:50', '2024-09-04 11:44:39'),
+(14, '4', 'new work', 'new-work', 'backend/image/blog/66ca8da35e2b4.png', 'sadfa', 'asdfsa', NULL, '1', '2024-08-24 19:49:23', NULL);
 
 -- --------------------------------------------------------
 
@@ -148,8 +149,7 @@ CREATE TABLE `contacts` (
 INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
 (1, 'Md.Afzal Hossen', 'afzalbhola07@gmail.com', '01811178307', 'Bangla 1', 'sdafasf', '2024-08-25 14:43:30', NULL),
 (2, 'Md.Afzal Hossen', 'afzalbhola07@gmail.com', '01811178307', 'Bangla 1', 'safasfa', '2024-08-25 14:46:17', NULL),
-(4, 'Md.Afzal Hossen', 'afzalbhola07@gmail.com', '01811178307', NULL, 'asdfsa', '2024-08-25 20:09:43', NULL),
-(5, 'Md.Afzal Hossen', 'afzalbhola07@gmail.com', '01811178307', 'sdafa', 'dsafas', '2024-08-25 20:10:00', NULL);
+(4, 'Md.Afzal Hossen', 'afzalbhola07@gmail.com', '01811178307', NULL, 'asdfsa', '2024-08-25 20:09:43', NULL);
 
 -- --------------------------------------------------------
 
@@ -249,7 +249,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (21, '2024_08_26_123629_create_working_processes_table', 13),
 (22, '2024_08_27_065144_create_feedback_table', 14),
 (23, '2024_08_27_081743_create_partners_table', 15),
-(25, '2024_08_27_112239_create_services_table', 16);
+(25, '2024_08_27_112239_create_services_table', 16),
+(26, '2024_09_04_172823_add_blog_link_to_table', 17);
 
 -- --------------------------------------------------------
 
@@ -361,7 +362,15 @@ CREATE TABLE `project_portfolio` (
 
 INSERT INTO `project_portfolio` (`id`, `portfolio_name`, `portfolio_title`, `portfolio_image`, `portfolio_description`, `slug`, `website_link`, `type`, `status`, `created_at`, `updated_at`) VALUES
 (3, 'Personnel Portfolio', 'Afzal - Personnel Portfolio', 'backend/image/portfolio/66ca93f6def93.png', 'This Is My Personnel Portfolio Site.', 'personnel-portfolio', NULL, '1', '1', '2024-08-24 20:16:22', NULL),
-(4, 'Personnel Portfolio', 'Personnel Portfolio Admin Deshboard', 'backend/image/portfolio/66ca946486b0e.png', 'This is Portfolio Admin Dashboard Section.', 'personnel-portfolio', 'https://bn.wikipedia.org/wiki/%E0%A6%A6%E0%A7%88%E0%A6%A8%E0%A6%BF%E0%A6%95_%E0%A6%95%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%B0_%E0%A6%95%E0%A6%A3%E0%A7%8D%E0%A6%A0', '2', '1', '2024-08-24 20:18:12', '2024-08-26 02:20:30');
+(4, 'Personnel Portfolio', 'Personnel Portfolio Admin Deshboard', 'backend/image/portfolio/66ca946486b0e.png', 'This is Portfolio Admin Dashboard Section.', 'personnel-portfolio', 'https://bn.wikipedia.org/wiki/%E0%A6%A6%E0%A7%88%E0%A6%A8%E0%A6%BF%E0%A6%95_%E0%A6%95%E0%A6%BE%E0%A6%B2%E0%A7%87%E0%A6%B0_%E0%A6%95%E0%A6%A3%E0%A7%8D%E0%A6%A0', '2', '1', '2024-08-24 20:18:12', '2024-08-26 02:20:30'),
+(5, 'E-News Portal', 'Vorer Khobor365', 'backend/image/portfolio/66d891decbd76.png', 'Each template in our ever growing studio library can be added and moved around within any page effortlessly with one click.', 'e-news-portal', 'https://www.news24bd.tv/details/137812', '1', '1', '2024-09-04 10:59:10', '2024-09-04 11:00:24'),
+(6, 'E-News Portal', 'Vorer Khobor365 (Admin Dashboard)', 'backend/image/portfolio/66d892bac9537.png', 'Each template in our ever growing studio library can be added and moved around within any page effortlessly with one click.', 'e-news-portal', 'https://www.news24bd.tv/details/137812', '2', '1', '2024-09-04 11:02:50', NULL),
+(7, 'E-commerce website', '1ShotApparel', 'backend/image/portfolio/66d89424bd826.png', 'BlingShot is a brand dedicated to providing high-quality, stylish clothing for both men and women. We specialize in men’s and women’s fashion wear. Our designs are crafted to meet the needs of daily lifestyle while maintaining a sleek and modern look. At BlingShot, we believe in offering fashion-forward apparel that effortlessly blends comfort and style, allowing our customers to feel confident and look their best in any setting.', 'e-commerce-website', 'https://1shotapparel.com/', '1', '1', '2024-09-04 11:08:52', NULL),
+(8, 'E-commerce website', '1ShotApparel (Dashboard)', 'backend/image/portfolio/66d8953d94f54.png', 'BlingShot is a brand dedicated to providing high-quality, stylish clothing for both men and women. We specialize in men’s and women’s fashion wear. Our designs are crafted to meet the needs of daily lifestyle while maintaining a sleek and modern look. At BlingShot, we believe in offering fashion-forward apparel that effortlessly blends comfort and style, allowing our customers to feel confident and look their best in any setting.', 'e-commerce-website', 'https://1shotapparel.com/', '2', '1', '2024-09-04 11:13:33', NULL),
+(9, 'E-commerce website', 'Bhola99 (E-shop)', 'backend/image/portfolio/66d89645b8179.png', 'Bhola99 is a brand dedicated to providing high-quality, stylish clothing for both men and women. We specialize in men’s and women’s fashion wear. Our designs are crafted to meet the needs of daily lifestyle while maintaining a sleek and modern look. At Bhola99 , we believe in offering fashion-forward apparel that effortlessly blends comfort and style, allowing our customers to feel confident and look their best in any setting.', 'e-commerce-website', NULL, '1', '1', '2024-09-04 11:17:57', NULL),
+(10, 'E-commerce website', 'Bhola99 (Dashboard)', 'backend/image/portfolio/66d896a608f2c.png', 'Bhola99 is a brand dedicated to providing high-quality, stylish clothing for both men and women. We specialize in men’s and women’s fashion wear. Our designs are crafted to meet the needs of daily lifestyle while maintaining a sleek and modern look. At Bhola99 , we believe in offering fashion-forward apparel that effortlessly blends comfort and style, allowing our customers to feel confident and look their best in any setting.', 'e-commerce-website', NULL, '2', '1', '2024-09-04 11:19:34', NULL),
+(11, 'Lift Management Project', 'Express Engineers BD', 'backend/image/portfolio/66da2c04aa4ad.png', 'This Web site is lift management system site. this make laravel fremeword .', 'lift-management-project', 'https://expressengineersbd.com/', '1', '1', '2024-09-05 16:09:08', NULL),
+(12, 'Lift Management Project', 'Express Engineers BD', 'backend/image/portfolio/66da2c352e0e7.png', 'Admin Dashboard Site', 'lift-management-project', 'https://expressengineersbd.com/', '2', '1', '2024-09-05 16:09:57', NULL);
 
 -- --------------------------------------------------------
 
@@ -387,7 +396,7 @@ CREATE TABLE `seos` (
 --
 
 INSERT INTO `seos` (`id`, `meta_author`, `meta_title`, `meta_keyword`, `meta_description`, `google_analytics`, `google_verification`, `alexa_analytics`, `created_at`, `updated_at`) VALUES
-(1, 'md.afzal hossen', 'afzal - portfolio site', 'afzal, portfolio, afzal portfolio, afzal blog, blog afzal , afzal web site', 'My name is Md.Afzal Hossen , this is my personal website.', 'eeeeeeee', 'eeee', 'eee', '2024-08-25 15:29:53', NULL);
+(1, 'md.afzal hossen', 'afzal - portfolio site', 'afzal, portfolio, afzal portfolio, afzal blog, blog afzal , afzal web site', 'My name is Md.Afzal Hossen , this is my personal website.', 'eeeeeeeeeeeeeeeeeeeeeee', 'eeee', 'eee', '2024-09-05 16:48:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -412,9 +421,11 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `title`, `short_description`, `logn_description`, `image`, `icon`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Web Developing', 'We are try our best effort. we are give this smart web site.', '<p>We are try our best effort. we are give this smart web site.</p>\r\n<p>-&gt;&nbsp;</p>\r\n<p>-&gt;</p>\r\n<p>-&gt;</p>\r\n<p>-&gt;</p>', 'backend/image/services/image/66cde5ab57f5d.png', 'backend/image/services/icon/66cde5abec43e.png', '1', '2024-08-27 08:41:47', NULL),
-(2, 'Project Bugs Testing', 'Our company sensorily solved your project bags. if others any issues  in your project then we are sensorily solved in your project issues.', '<p>Our company sensorily solved your project bags. if others any issues &nbsp;in your project then we are sensorily solved in your project issues.</p>', 'backend/image/services/image/66cde7abf39af.png', 'backend/image/services/icon/66cde7ac0d030.png', '1', '2024-08-27 08:50:19', NULL),
-(4, 'dsafasf', 'asdfasfasf', '<p>asdfsafas</p>', 'backend/image/services/image/66cdeaea4f651.png', 'backend/image/services/icon/66cdeaea557d9.png', '1', '2024-08-27 09:04:10', NULL);
+(1, 'Web Application Development', 'Web application development is the creation of application programs that reside on remote servers and are delivered to the user\'s device over the internet.', '<p>-&gt; Laravel Framework.</p>\r\n<p>-&gt; MySql (Database).</p>\r\n<p>-&gt; Using Others Packages.</p>', 'backend/image/services/image/66d9f67ba7bd6.gif', 'backend/image/services/icon/66cde5abec43e.png', '1', '2024-08-27 08:41:47', '2024-09-05 12:23:40'),
+(2, 'Management System', 'A web content management system (WCMS) is a type of content management system (CMS) that provides an organization with a way to manage digital information on a website through creating and maintaining content without prior knowledge of web programming or markup languages.', '<p>-&gt; Laravel Framework.</p>\r\n<p>-&gt; MySql (Database).</p>\r\n<p>-&gt; Using Others Packages.</p>', 'backend/image/services/image/66d9f8766353b.jpg', 'backend/image/services/icon/66cde7ac0d030.png', '1', '2024-08-27 08:50:19', '2024-09-05 12:29:36'),
+(4, 'Business Application', 'A business application is a software or tool that is purchased to address specific business needs, such as improving productivity, managing aspects of the business, or aiding in business growth. These applications can include shared calendars, accounting programs, inventory databases, and email services.', '<p>-&gt; Laravel Framework.</p>\r\n<p>-&gt; MySql (Database).</p>\r\n<p>-&gt; Others Packeges.</p>\r\n<p>-&gt;Vue.Js</p>', 'backend/image/services/image/66da0fb3ecafb.jpg', 'backend/image/services/icon/66da10cbc0b1c.png', '1', '2024-08-27 09:04:10', '2024-09-05 14:12:59'),
+(5, 'Inventory  Management System', 'An inventory management system is how businesses track and control stock before it is sold. Whether automated or manual, inventory systems seek to bring your inventory carrying costs down while ensuring sufficient stock is available to meet customer demand.', '<p>-&gt; Laravel Framework.</p>\r\n<p>-&gt; MySql (Database).</p>\r\n<p>-&gt; Using others packeag.</p>\r\n<p>-&gt; Vue.Js.</p>', 'backend/image/services/image/66da1190edc17.jpg', 'backend/image/services/icon/66da1190f2adf.png', '1', '2024-09-05 14:16:16', NULL),
+(6, 'Website Customization ( Laravel Framework)', 'Website personalization refers to the process of tailoring the user experience based on their behavior and preferences, while customization refers to the ability for users to actively modify the layout and functionality of a website to their liking.', '<p>-&gt; Bug Fixes.</p>\r\n<p>-&gt; Backup &amp; Migration.</p>\r\n<p>-&gt;Speed Optimization etc</p>', 'backend/image/services/image/66da13910e932.jpg', 'backend/image/services/icon/66da1391167f1.png', '1', '2024-09-05 14:24:49', NULL);
 
 -- --------------------------------------------------------
 
@@ -439,7 +450,7 @@ CREATE TABLE `socials` (
 --
 
 INSERT INTO `socials` (`id`, `linkedin`, `facebook`, `twitter`, `instagram`, `github`, `youtube`, `created_at`, `updated_at`) VALUES
-(1, 'https://www.linkedin.com/in/afzal-swe/', 'https://www.facebook.com/afzalswe/', 'Null', 'Null', 'https://github.com/afzal-swe', 'https://www.youtube.com/@PROGRAMMINGTRUSTBD', '2024-08-22 11:20:05', '2024-08-22 18:00:28');
+(1, 'https://www.linkedin.com/in/afzal-swe/', 'https://www.facebook.com/afzalswe/', 'https://www.instagram.com/afzal_swe/', 'https://www.instagram.com/afzal_swe/', 'https://github.com/afzal-swe', 'https://www.youtube.com/@PROGRAMMINGTRUSTBD', '2024-08-22 11:20:05', '2024-09-05 16:48:17');
 
 -- --------------------------------------------------------
 
@@ -465,7 +476,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `user_name`, `email`, `image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(19, 'Md.Afzal Hossen', 'afzal-swe', 'afzal.swe@gmail.com', 'backend/image/profile/66c610fd6db98.jpeg', '2024-08-21 16:07:16', '$2y$10$EJMN1x4KJ7vrm864fE/JoON4Sb.EKtO/t4Lzuhc3RYDWVr.V7nGK2', NULL, '2024-08-21 10:06:57', '2024-08-21 10:08:29');
+(19, 'Md.Afzal Hossen', 'afzal-swe', 'afzal.swe@gmail.com', 'backend/image/profile/66da3512ecce3.jpeg', '2024-08-21 16:07:16', '$2y$10$EJMN1x4KJ7vrm864fE/JoON4Sb.EKtO/t4Lzuhc3RYDWVr.V7nGK2', NULL, '2024-08-21 10:06:57', '2024-09-05 16:47:46');
 
 -- --------------------------------------------------------
 
@@ -664,13 +675,13 @@ ALTER TABLE `abouts`
 -- AUTO_INCREMENT for table `about_multi_images`
 --
 ALTER TABLE `about_multi_images`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `blog_categories`
@@ -706,7 +717,7 @@ ALTER TABLE `home_slide`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `partners`
@@ -730,7 +741,7 @@ ALTER TABLE `progress_bar`
 -- AUTO_INCREMENT for table `project_portfolio`
 --
 ALTER TABLE `project_portfolio`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `seos`
@@ -742,7 +753,7 @@ ALTER TABLE `seos`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `socials`

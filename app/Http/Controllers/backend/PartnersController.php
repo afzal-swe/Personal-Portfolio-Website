@@ -12,13 +12,32 @@ class PartnersController extends Controller
     //
     private $db_partners;
 
+
+
+
+
+    /**
+     * Constructor to initialize database table names.
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->db_partners = "partners";
-    } // End Method
+    }
 
 
-    // Partners Create Function
+
+
+
+
+
+
+    /**
+     * Show the form for creating or updating partner information.
+     *
+     * @return \Illuminate\View\View
+     */
     public function Partners_Create()
     {
 
@@ -30,9 +49,20 @@ class PartnersController extends Controller
 
             return view('backend.partners.create');
         }
-    } // End Method
+    }
 
-    // Partner Store Function
+
+
+
+
+
+
+    /**
+     * Store a new partner record.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Partners_Store(Request $request)
     {
 
@@ -45,9 +75,20 @@ class PartnersController extends Controller
 
         $notification = array('message' => 'Store Successfully!', 'alert-type' => 'success');
         return redirect()->route('partners.create')->with($notification);
-    } // End Method
+    }
 
-    // Partner Update Function
+
+
+
+
+
+
+    /**
+     * Update an existing partner record.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function Partners_Update(Request $request)
     {
         // dd($request->all());
@@ -63,5 +104,5 @@ class PartnersController extends Controller
 
         $notification = array('message' => 'Update Successfully!', 'alert-type' => 'success');
         return redirect()->back()->with($notification);
-    } // End Method
+    }
 }
